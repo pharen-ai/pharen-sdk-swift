@@ -1,0 +1,85 @@
+# The Pharen sample app: the smallest app that starts the SDK, with one row per capability
+# and a settings screen that opens the report flow from its own menu.
+#
+# XcodeGen keeps this file and PharenSample.xcodeproj in step. The project is committed, so
+# the sample opens in Xcode with no tool installed; after editing this file, regenerate it
+# here with `xcodegen generate` (XcodeGen 2.45.4 — a different version writes different
+# object ids, which reads as a change) and commit both.
+#
+# The package is the one at the repository root: the sample resolves the compiled framework
+# the manifest names.
+name: PharenSample
+
+packages:
+  PharenSDK:
+    path: ..
+
+options:
+  bundleIdPrefix: ai.pharen.sample
+  # The Xcode the project is written for, so Xcode does not offer to rewrite it.
+  xcodeVersion: "26.0"
+  deploymentTarget:
+    iOS: "15.0"
+  createIntermediateGroups: true
+  developmentLanguage: en
+  generateEmptyDirectories: false
+
+configs:
+  Debug: debug
+  Release: release
+
+settings:
+  base:
+    # The Swift 6 language mode: the SDK's public surface is Sendable, so a plain
+    # `import PharenSDK` compiles here without `@preconcurrency`.
+    SWIFT_VERSION: "6.0"
+    # Your ingest key, as a build setting the Info.plist reads: set it here, in Xcode's Build
+    # Settings, or on the command line (`xcodebuild … PHAREN_INGEST_KEY=…`). Empty, the SDK
+    # stays off and the home screen says so.
+    PHAREN_INGEST_KEY: ""
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    GENERATE_INFOPLIST_FILE: YES
+    INFOPLIST_KEY_UILaunchScreen_Generation: YES
+    INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+    INFOPLIST_KEY_UISupportedInterfaceOrientations: UIInterfaceOrientationPortrait
+    ENABLE_USER_SCRIPT_SANDBOXING: YES
+    CODE_SIGN_STYLE: Automatic
+
+targets:
+  PharenSample:
+    type: application
+    platform: iOS
+    sources:
+      - PharenSample
+    dependencies:
+      - package: PharenSDK
+    info:
+      path: PharenSample/Info.plist
+      properties:
+        # The ingest key — public by design: it scopes writes to one app and one environment
+        # and reads nothing. Resolved from the build setting above; replace the value with the
+        # key itself if you would rather not use a build setting.
+        PharenIngestKey: $(PHAREN_INGEST_KEY)
+        # The purposes granted at launch. The settings screen changes them at runtime. `health`
+        # is left out on purpose — the SDK drops it at start — because special-category consent
+        # is only ever the person's own act at runtime; the settings screen has the switch.
+        PharenConsentGrantedAtBuild: [telemetry, behavioral, content]
+        # Your universal-link domains, once the target carries their associated-domain
+        # entitlements; the deep-link row counts a link only from a domain listed here.
+        # PharenLinkDomains: [myapp.example]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: ai.pharen.sample
+        PRODUCT_NAME: PharenSample
+        # An iPhone app (a target-level setting, where it wins over the generator's default).
+        TARGETED_DEVICE_FAMILY: "1"
+        CODE_SIGN_IDENTITY: "Apple Development"
+
+schemes:
+  PharenSample:
+    build:
+      targets:
+        PharenSample: all
+    run:
+      config: Debug

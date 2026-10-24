@@ -1,0 +1,366 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		366C47B14B75A38AB08D3969 /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E403A2423A33AAD9B45050 /* Brand.swift */; };
+		3A54ED88A0300D6D5689B484 /* PharenSDK in Frameworks */ = {isa = PBXBuildFile; productRef = E0299354C56F57B5A1E40A77 /* PharenSDK */; };
+		7F6E083CD398BAA6EE57C810 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF4E83E1AA94F11F953C067 /* SettingsView.swift */; };
+		B0722BC8D4884CBD365637FF /* SampleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB55FA486FAEEB93A071200F /* SampleModel.swift */; };
+		C07D5D9F12E251DEAF663ACE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D313BFE81E96151BEDBABA /* HomeView.swift */; };
+		E47E242FCC0BB6C4133F565B /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C95825B75F3EAE0B9ED993 /* PrivacyView.swift */; };
+		FD66E7141A5DDCFC4BF9FB4C /* PharenSampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235B429ACD83D6A965F3736E /* PharenSampleApp.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		03E403A2423A33AAD9B45050 /* Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
+		0805DECEFFA4876EF7319257 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		21D313BFE81E96151BEDBABA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		235B429ACD83D6A965F3736E /* PharenSampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharenSampleApp.swift; sourceTree = "<group>"; };
+		3BF4E83E1AA94F11F953C067 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		767BAAAE5D84A601D9BA2A63 /* ios */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ios; path = ..; sourceTree = SOURCE_ROOT; };
+		76C95825B75F3EAE0B9ED993 /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
+		A28206BB67F8F6AF58A5CDEA /* PharenSample.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = PharenSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB55FA486FAEEB93A071200F /* SampleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EF46F69473C7897C34706A49 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A54ED88A0300D6D5689B484 /* PharenSDK in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		055D1E22224C68A71727C4AC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A28206BB67F8F6AF58A5CDEA /* PharenSample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CCBC643F43C32F259E3BA45E = {
+			isa = PBXGroup;
+			children = (
+				EBDCBB497EB1E1509D122299 /* Packages */,
+				E40CE769381FE81F77F879AA /* PharenSample */,
+				055D1E22224C68A71727C4AC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E40CE769381FE81F77F879AA /* PharenSample */ = {
+			isa = PBXGroup;
+			children = (
+				03E403A2423A33AAD9B45050 /* Brand.swift */,
+				21D313BFE81E96151BEDBABA /* HomeView.swift */,
+				0805DECEFFA4876EF7319257 /* Info.plist */,
+				235B429ACD83D6A965F3736E /* PharenSampleApp.swift */,
+				76C95825B75F3EAE0B9ED993 /* PrivacyView.swift */,
+				BB55FA486FAEEB93A071200F /* SampleModel.swift */,
+				3BF4E83E1AA94F11F953C067 /* SettingsView.swift */,
+			);
+			path = PharenSample;
+			sourceTree = "<group>";
+		};
+		EBDCBB497EB1E1509D122299 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				767BAAAE5D84A601D9BA2A63 /* ios */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9A0BEFA03F87087D8E734A17 /* PharenSample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4F40F941398FD327518AA37A /* Build configuration list for PBXNativeTarget "PharenSample" */;
+			buildPhases = (
+				1EBC4B0350788755BF3C863A /* Sources */,
+				EF46F69473C7897C34706A49 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PharenSample;
+			packageProductDependencies = (
+				E0299354C56F57B5A1E40A77 /* PharenSDK */,
+			);
+			productName = PharenSample;
+			productReference = A28206BB67F8F6AF58A5CDEA /* PharenSample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		201E7BAE5448F92FDD8311C4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 2600;
+				TargetAttributes = {
+					9A0BEFA03F87087D8E734A17 = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 16A53A2AA624DE2B9104DD2E /* Build configuration list for PBXProject "PharenSample" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CCBC643F43C32F259E3BA45E;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				138F40B4FD5138083251A9EB /* XCLocalSwiftPackageReference ".." */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 055D1E22224C68A71727C4AC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9A0BEFA03F87087D8E734A17 /* PharenSample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1EBC4B0350788755BF3C863A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				366C47B14B75A38AB08D3969 /* Brand.swift in Sources */,
+				C07D5D9F12E251DEAF663ACE /* HomeView.swift in Sources */,
+				FD66E7141A5DDCFC4BF9FB4C /* PharenSampleApp.swift in Sources */,
+				E47E242FCC0BB6C4133F565B /* PrivacyView.swift in Sources */,
+				B0722BC8D4884CBD365637FF /* SampleModel.swift in Sources */,
+				7F6E083CD398BAA6EE57C810 /* SettingsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		3BBCBC177AEAA252B503E542 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				INFOPLIST_FILE = PharenSample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ai.pharen.sample;
+				PRODUCT_NAME = PharenSample;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		ABA27E92F15680828F8DE49C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				INFOPLIST_FILE = PharenSample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ai.pharen.sample;
+				PRODUCT_NAME = PharenSample;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		C9864E050B5D4568E6A2AE01 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PHAREN_INGEST_KEY = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		EF3693E13DD95E44FB0CC11A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PHAREN_INGEST_KEY = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		16A53A2AA624DE2B9104DD2E /* Build configuration list for PBXProject "PharenSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF3693E13DD95E44FB0CC11A /* Debug */,
+				C9864E050B5D4568E6A2AE01 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		4F40F941398FD327518AA37A /* Build configuration list for PBXNativeTarget "PharenSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BBCBC177AEAA252B503E542 /* Debug */,
+				ABA27E92F15680828F8DE49C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		138F40B4FD5138083251A9EB /* XCLocalSwiftPackageReference ".." */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ..;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E0299354C56F57B5A1E40A77 /* PharenSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PharenSDK;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 201E7BAE5448F92FDD8311C4 /* Project object */;
+}

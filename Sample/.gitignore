@@ -1,0 +1,11 @@
+# What Xcode writes when this project is opened or built — per-user state, never part of the
+# sample. The committed project is generated from project.yml; regenerate it rather than
+# editing it, and commit the regeneration.
+xcuserdata/
+*.xcuserstate
+PharenSample.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+PharenSample.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/
+DerivedData/
+.build/
+.swiftpm/
+.DS_Store

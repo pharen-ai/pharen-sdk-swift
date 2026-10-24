@@ -1,0 +1,537 @@
+Pharen legal text supplied with this SDK release
+
+This copy records the Terms of Service and Acceptable Use Policy supplied with the release. LICENSE.md identifies the applicable grant and incorporated provisions; including a document here does not expand that incorporation. It records the text as published when the release was made; Schedule A, A6 states which version governs a copy of the Software, and later website changes do not alter this recorded text. The release tag identifies this copy.
+
+https://www.pharen.ai/legal/terms
+
+Legal
+
+Terms of Service
+
+Version 1.0·Effective September 1, 2026·pharen-tos
+
+These Terms are the master agreement between Pharen and each customer of the Pharen platform. They incorporate the Acceptable Use Policy (https://www.pharen.ai/legal/aup), the Data Processing Agreement (https://www.pharen.ai/legal/dpa), and the Price Schedule and Service Limits (https://www.pharen.ai/legal/price-schedule) that Section 11 describes, and they are written to match how the platform is actually built — nothing below promises machinery that does not exist.
+
+1. The Agreement
+
+These Terms of Service (the “Terms”) are an agreement between Pharen (a trade name of Lucubra LLC, a Washington (USA) limited liability company) (“Pharen,” “we,” “us”), and the entity or individual that accepts them (“Customer,” “you”). They govern access to and use of the Service.
+
+You accept these Terms on the earliest of:
+
+indicating acceptance where the Service or an onboarding flow offers it, including when you buy a Self-Serve Plan (Section 11.2);
+
+executing — or confirming by email — an order form or onboarding exchange that references these Terms (each an “Order”); or
+
+accessing or using the Service after credentials are provisioned at your request.
+
+The person accepting represents that they are at least 18 years old and authorized to bind the Customer. The Service is offered for business use and not to consumers. If you do not agree to these Terms, do not use the Service.
+
+The agreement set. The following are part of the agreement between us, and in a conflict they apply in this order: (1) an Order, for the matters it addresses; (2) the Data Processing Agreement (https://www.pharen.ai/legal/dpa) (the “DPA”), for the processing of personal data; (3) these Terms, including Schedule A; (4) the Acceptable Use Policy (https://www.pharen.ai/legal/aup) (the “AUP”); (5) the Documentation. The Price Schedule (https://www.pharen.ai/legal/price-schedule#price-schedule) and the Service Limits (https://www.pharen.ai/legal/price-schedule#service-limits) (Section 11.2) are part of these Terms and yield to their text in a conflict. A Self-Serve Plan is not an Order. Each document is identified by version; the versions you accept are recorded at onboarding, and the versions of the Price Schedule and the Service Limits at each paid transaction and renewal.
+
+2. Definitions
+
+“Additional Volume” has the meaning Section 11.3 gives it.
+
+“Agreement” means these Terms (including the Price Schedule and the Service Limits) together with the AUP, the DPA, the Documentation, and any Order.
+
+“App” means a Customer application or other software that integrates with the Service under Customer’s organization.
+
+“Customer Data” means data submitted to the Service by or for Customer, including data an App’s SDK integration sends (events, diagnostics, attributes), build artifacts Customer uploads, and content End Users submit through an App.
+
+“Documentation” means the usage documentation for the Service that we make available, as updated.
+
+“End User” means an individual who uses an App — including a tester Customer distributes builds to.
+
+“End-User Feedback” means what an End User writes or chooses in a form for an App’s team — a report and what it attaches, or an answer to a rating or survey question — and the events that carry it to the Service. It is Customer Data, and it is not feedback under Section 13.
+
+“Order” has the meaning Section 1 gives it. A Self-Serve Plan is not an Order.
+
+“paid plan,” “Plan Term,” “Price Schedule,” “Self-Serve Plan,” “Service Limits,” and “Usage Period” have the meanings Section 11.2 gives them.
+
+“Platform Mark” means the attribution to Pharen that the Software displays in a form it draws for End-User Feedback, or that a page the Service hosts displays.
+
+“SDKs” means the Pharen software development kits and related integration code we make available for inclusion in Apps.
+
+“Software” has the meaning Section 8 gives it.
+
+“Service” means the Pharen platform’s hosted services made available to Customer — ingestion, processing, storage, build distribution and link infrastructure, and the administrative console we host for Customer’s team — together with the Documentation. The SDKs are licensed separately (Section 8) and are not part of the hosted Service.
+
+“Usage Data” means operational data about use of the Service itself — volumes, feature usage, performance, and diagnostics — that does not include the contents of Customer Data.
+
+3. Service scope, limits & availability
+
+Once we approve your application for the Service, or accept your Order, we create your organization, and you enable the Service’s capabilities yourself; where you ask, we configure them with you. The Service is provided on these terms:
+
+the Service’s capabilities may change, and we may add, alter, or discontinue features. We will give you reasonable advance notice of any change that materially reduces a capability you actively use. A change to what a Self-Serve Plan includes is governed by Section 11.7 instead; but where we discontinue a capability for every customer, this bullet governs, and if it removes a feature your Self-Serve Plan lists as included during a Plan Term you have paid for, we will notify you of it, and you may, by notice given within 30 days after the later of our notice and the date the feature is removed, and notwithstanding Section 18, end that plan with a pro-rata refund of the fees prepaid for the rest of that Plan Term;
+
+we do not offer an availability commitment or service-level agreement, and no uptime representation is made anywhere. We communicate incidents and material operational changes to your organization’s contact;
+
+support is provided on a reasonable-efforts basis by email (hello@pharen.ai (mailto:hello@pharen.ai)).
+
+Usage limits and fair use. Your use of the Service is subject to the usage limits stated in the Service Limits or in your Order — rate limits, quotas, retention windows, and the volumes the Service is made available for. We set and change limits only as Section 11.7 provides, or as your Order provides for a limit it states. Where your use imposes load or cost on the Service that is disproportionate to what the Service Limits or your Order provides for — whether or not a stated limit is exceeded — we may throttle or suspend the affected use under Section 18, with notice where practicable, and we will work with you on a plan or an Order that fits the use; use within the allowances of a paid plan, including any Additional Volume, is throttled or suspended under this sentence only where it breaches the AUP or endangers the Service or other customers. Circumventing a limit is a breach of the AUP.
+
+Features identified as beta, preview, or experimental are provided for evaluation, may be changed or withdrawn at any time, and are excluded from any commitments an Order may add and from what a Self-Serve Plan includes.
+
+4. Organizations, credentials & keys
+
+Your organization is the space in the Service that holds your Apps and the people you authorize; a Customer that is an individual has one too. Access to the administrative console and control-plane APIs is authenticated through a third-party developer identity provider; what we receive is described in the Privacy Notice (https://www.pharen.ai/legal/privacy). You are responsible for the people you authorize, for what they do in your organization, and for keeping your organization’s information accurate.
+
+Credentials come in two kinds, and they carry different duties:
+
+Control-plane credentials (sessions and tokens that can administer your organization) are secrets. Safeguard them, scope them to the people and systems that need them, and tell us promptly at hello@pharen.ai (mailto:hello@pharen.ai) if one may be compromised.
+
+Ingest keys are designed to be embedded in your Apps: they are write-scoped, and the Service derives your organization and environment from the key server-side — an ingest key cannot read data. Still, use each environment’s key only for that environment, do not publish keys outside your Apps, and ask us to rotate a key you believe is being abused.
+
+We may rotate or revoke a credential where reasonably necessary to address compromise or abuse, with notice where practicable.
+
+5. Customer Data
+
+You own Customer Data. You grant Pharen a non-exclusive, worldwide license to host, copy, transmit, process, and display Customer Data solely as necessary to provide, secure, and support the Service in accordance with your instructions — your configuration of the Service, the Agreement, and the DPA — and as required by law, and to examine Software frames as Section 6 describes. We acquire no other rights in Customer Data.
+
+For personal data within Customer Data, you are the controller and Pharen is your processor; the Data Processing Agreement (https://www.pharen.ai/legal/dpa) governs. You represent that you have the rights, notices, and consents needed to submit Customer Data to the Service.
+
+Store Data. The Service can maintain publicly available app-store listing information — ratings summaries, rankings, listing metadata — collected once from the store’s public surfaces and made available to customers that register interest in a listing, including a listing you don’t own. That shared listing data is third-party public information, not Customer Data, contains no personal data, and is provided as-is. Separately, where you connect your own store credential, data obtained with it — your app’s customer reviews, sales, and performance data — is retrieved at your instruction, kept to your organization, and is Customer Data under this Agreement and the DPA.
+
+6. Our data commitments
+
+These commitments apply to all Customer Data, always:
+
+We never sell or rent Customer Data or End-User personal data, and we do not use it for advertising.
+
+We do not use Customer Data to train machine-learning or AI models — ours or anyone else’s. If we ever make AI-assisted analysis available to you, it runs under the DPA’s conditions (pseudonymized, minimized inputs; providers bound to no-training and zero-retention terms) and this commitment still holds.
+
+Direct identifiers stay off the event stream. Identity traits route to a restricted attribute store, separate from events, and the Service rejects events that carry fields it classifies as identifying — enforced server-side, where it cannot be skipped. We commit to maintaining that enforcement.
+
+Deletion propagates. Deletion instructions are honored across live stores and backups within the windows the DPA states.
+
+Infrastructure connection data. Our hosting and delivery providers receive ordinary connection metadata needed for lawful network operations. The DPA’s Section 7 and the Privacy Notice (https://www.pharen.ai/legal/privacy#sharing) describe their separate roles. Recognizing those roles does not authorize sale or rental, advertising, or model training using Customer Data or End-User personal data, including identifiable connection metadata. It does not change our commitments above, expand the Usage Data provision below, or authorize a use that the DPA or applicable law prohibits.
+
+We use Usage Data to operate, secure, improve, develop, and plan the Service, and to bill, if fees apply. Where we train models on Usage Data, we use only Usage Data aggregated or de-identified so that it identifies no End User. We do not disclose Usage Data in any form that identifies you, your Apps, or your End Users — outside the Agreement’s own confidentiality terms, Usage Data leaves our hands only aggregated or de-identified.
+
+Where a crash or error occurs inside the Software we distribute, we may examine the frames that belong to the Software — and no other part of the crash record, the contents of your App, or End User identifiers — and compare those Software frames across customers to find and fix defects in the Software. What we learn about the Software is Usage Data; the crash record itself remains Customer Data.
+
+7. Your responsibilities
+
+Use the Service in compliance with applicable law and the AUP (https://www.pharen.ai/legal/aup) — including the AUP’s rules about data that must never be sent to the event stream.
+
+End-User notices and consents are yours. The platform provides consent mechanics — purposes stamped on events, enforcement at the point of collection — but your configuration is the policy: you decide what to collect, under which purposes, with which disclosures to your End Users. Whether your use of the Service complies with the GDPR, the CCPA, or any other regime is a legal determination that stays with you and your counsel.
+
+You are responsible for your Apps, their content, and your relationships with End Users — including compliance with the policies of the app platforms you distribute through.
+
+You will not use the Service in violation of export-control or sanctions law (Section 20).
+
+8. Software & licenses
+
+SDKs, command-line tools, and other software we make available (“Software”) are licensed, not sold. Software whose accompanying license file states that it is licensed under Schedule A (https://www.pharen.ai/legal/terms#schedule-a) is licensed under Schedule A, which forms part of these Terms and, as to that Software, governs over the other Sections; Software that carries its own complete license is licensed under that license; integration glue such as release-lane tooling carries the permissive open-source license stated in each component. Schedule A applies to anyone who obtains Software licensed under it, whether or not they hold an account, and is accepted by downloading, installing, running, linking, or distributing that Software after notice of its terms. These Terms govern the hosted Service; Schedule A governs the Software. We retain all rights not expressly granted; you retain all rights in your Apps.
+
+9. Build distribution & install links
+
+Where you use the Service to distribute App builds:
+
+you may upload and distribute only builds you have the right to distribute, signed under credentials you are entitled to use, and you are responsible for complying with the distribution policies of the relevant platform vendor;
+
+install links are served at unguessable, unlisted addresses but are not access-controlled: anyone you give a link to can use it where the platform permits, so distribute links with the same care as the builds themselves. The artifact behind an install page is fetched through short-lived signed download links minted per visit, so the page’s address is the only durable thing to share;
+
+you must not distribute malware, spyware, or deceptive software through the Service (see the AUP). We may scan artifacts, and may suspend or remove an artifact or link where reasonably necessary to address malware, an AUP violation, or a legal requirement — with notice where practicable.
+
+10. Communications & automated actions
+
+If you use the Service to deliver communications to End-User devices, you control their content, audience, and timing, and you are responsible for complying with applicable messaging and electronic-communications laws and platform policies, including honoring End-User opt-outs. Any capability that executes automated, rule-driven actions is disabled or simulation-only by default and acts only after you explicitly enable it; what you enable and configure is your responsibility.
+
+11. Fees, prepaid plans & price changes
+
+11.1 When fees apply
+
+Fees apply only under a Self-Serve Plan you buy or an Order you agree to. Use of the Service without either — including any trial the Price Schedule offers, for the period, allowances, and features it states — is provided without fees. If we introduce fees for use you already have without a Self-Serve Plan or an Order, they apply only if you buy a plan or agree an Order, and never retroactively. Fees are exclusive of taxes; you are responsible for taxes on your purchases (excluding taxes on our income). Except where the Agreement expressly provides a refund, fees are non-refundable. The refunds it provides are those in Sections 3, 16, 18, and 19 and Section 7 of the DPA, and this one: we refund a charge we made in error, including a second charge for volume already paid for in the same Usage Period. Every refund under the Agreement goes to the payment method used for the purchase — or, where that method can no longer accept it, to you by another means we reasonably choose, never to anyone else — together with any tax collected on the refunded amount that the law allows to be refunded. Where we refund prepaid fees because we terminated under Section 18 other than for your breach, or because we ceased to operate the Service, we may first deduct from the refund any amount due under the Agreement and unpaid that you are not disputing in good faith, and we refund the rest.
+
+11.2 Self-Serve Plans
+
+Where the Service offers plans for purchase through the Service, a plan you buy that way is a “Self-Serve Plan.” It is governed by these Terms, the Price Schedule, and the Service Limits, and it is not an Order: an Order is agreed between the parties as Section 1 describes, and where you have one, it governs over Sections 11.2 to 11.7 for the matters it addresses, including how its allowances apply. A Self-Serve Plan, or an Order under which fees are payable for a term, is a “paid plan.” A paid plan ends on the day its last Plan Term or Order term ends without renewal or replacement, whether or not that term’s fees were paid, or earlier as Section 11.8 provides for a failed renewal.
+
+Price and term. A Self-Serve Plan’s price is charged in advance for each “Plan Term,” which is one month, and the plan renews automatically as Section 18 provides. If you change plans during a Plan Term, the price shown when you make the change, including any credit for the rest of the current Plan Term, applies. A change of plan takes effect as the Service shows when you make it, and a change that is charged takes effect only once its charge succeeds; a charge that has not succeeded by the end of that Plan Term is not owed, and we do not collect it.
+
+Allowances are monthly. The allowances a plan includes apply to each “Usage Period” — each month of the plan, counted from the day it starts. Allowance unused in a Usage Period ends with it and does not carry over.
+
+The tables. The “Price Schedule” is the table we publish of each Self-Serve Plan’s price, allowances, and included features, and the Additional Volume offered with it and its price. The “Service Limits” is the table we publish of the usage limits in Section 3. Each table carries a version identifier and an effective date, and we keep its prior versions available. Of what we publish about pricing, only the tables are part of the Agreement: an explanation, example, estimate, or statement of our pricing practice, wherever published, is not.
+
+Acceptance at every paid transaction. Buying or changing a Self-Serve Plan, including adding or changing its Additional Volume, and enrolling in Automatic Raise each require your affirmative acceptance, with these Terms, the Price Schedule, and the Service Limits presented beside it. We record the version of each in force at every paid transaction and every renewal. Each paid transaction includes your representation that it is made for the purposes of a trade, business, or profession, and not as a consumer.
+
+When a plan or a trial ends. When a Self-Serve Plan or a trial ends and no Self-Serve Plan or Order follows, the Service stops accepting new data from your Apps. Customer Data the Service already holds is kept and deleted as Section 18 and the DPA provide; data the SDKs hold on devices and have not sent is deleted from the devices, as Section 18 and the Documentation (https://www.pharen.ai/docs/service-limits#no-plan) describe. Where no Self-Serve Plan or Order follows, we may terminate for convenience under the “Other use” paragraph of Section 18.
+
+11.3 Additional Volume
+
+Where the Service offers it, you may add monthly volume beyond a Self-Serve Plan’s allowances to the plan, bought through the Service before it is used (“Additional Volume”). Use in a Usage Period beyond your allowances, including any Additional Volume, is held as Section 11.4 describes.
+
+What it is. Additional Volume is a quantity of your Self-Serve Plan, in the units the Price Schedule states. Each unit adds the volume the Price Schedule states to your plan’s allowances for every Usage Period in which you hold it, and a reference in the Agreement to your allowances includes it. Like the rest of your allowances, volume unused in a Usage Period ends with it and does not carry over.
+
+Part of the plan, not a balance. Additional Volume is part of your Self-Serve Plan. It is not a balance, a credit, or stored value: it has no cash value, it cannot be transferred apart from the plan, and it ends when the plan ends. Each plan’s units are its own, so when a change of plan takes effect your Additional Volume ends with the plan you leave: volume already paid for stays usable until its Usage Period ends, and the new plan starts with none until it is raised.
+
+Charged in advance. Additional Volume is charged in advance for each Usage Period in which you hold it, at the Price Schedule’s price, which changes only as Section 11.7 allows. If that charge fails, the volume it pays for is not added until the charge succeeds; a charge that has not succeeded by the end of that Usage Period is not owed, and we do not collect it. Section 11.6 governs changing it.
+
+11.4 At the limit: the limit hold
+
+When use in a Usage Period has reached your plan’s session allowance (or, during a trial, the trial’s), including any Additional Volume, the Service holds further data from your Apps until your allowances are raised (for example, by raising your Additional Volume or changing plans) or the next Usage Period begins or, during a trial, until you buy a plan or agree an Order, or until the trial ends, after which Section 11.2 applies (a “limit hold”). During a limit hold:
+
+the Service keeps accepting the kinds of data the Service Limits list as exempt from a limit hold, and holds the rest;
+
+what the SDKs in your Apps keep on each device, and send when the hold ends, is described in the Documentation (https://www.pharen.ai/docs/service-limits#limit-hold). The SDKs are Software, provided as Section 15 and Schedule A describe;
+
+data held on a device is not Customer Data received by us: it is not in our possession or control, and we do not back it up, until the Service accepts it.
+
+We do not guarantee recovery of data held on devices. Data on a device whose App is removed, whose data is cleared, or which is lost, and data on a device that does not run the App again, may never arrive, and its loss is not a breach of the Agreement or a failure of the Service. When a hold ends other than because a trial ends, we ingest what devices then send, as the Documentation (https://www.pharen.ai/docs/service-limits#limit-hold) describes, and that use counts against the allowances of the Usage Period in which the Service accepts it. A limit hold is how the Service enforces a plan’s allowances under Section 3. It is not a suspension under Section 18, it is not a remedy for non-payment — nothing is owed — and it changes nothing else about your organization.
+
+11.5 Discarding held data
+
+Where the Service offers it, you may at any time instruct the Service to discard the data waiting to be sent under a limit hold, or held on devices because of a suspension (a “Discard”). A Discard covers data, other than the kinds exempt from a limit hold, that the Service has not yet accepted and that was recorded before you gave the instruction, together with every other such event of a session that began before it. The Service refuses that data as devices send it, and it counts against no allowance; other data recorded after the instruction is not covered. A Discard cannot be undone, and the Service asks you to confirm that before it takes effect. We record each Discard — who gave it, when, and how much the Service later refused under it — as your documented instruction under Section 3 of the DPA. Data refused under a Discard is refused at your instruction, not discarded by us, for the purposes of Section 18.
+
+11.6 Changing your Additional Volume
+
+Where the Service offers Additional Volume, you may raise or lower it through the Service at any time, except while a charge for it is in progress or in the final minutes of a Usage Period, when a charge could not succeed before it ends, and you may not raise it while a charge for a change of plan is in progress. A change takes effect, and any charge for it is made, as the Service shows when you make it, and a raise takes effect only once its charge succeeds. A raise’s charge that has not succeeded by the end of its Usage Period is not owed, and we do not collect it.
+
+Limits. The Service Limits may set a maximum Additional Volume. We may decline to sell Additional Volume in a jurisdiction, or with a payment method, where local law or the payment method’s rules make it unsuitable; where we do, use beyond your allowances is held as Section 11.4 describes.
+
+Disputed charges. While a charge for Additional Volume is disputed, we may withhold the part of the volume it paid for that has not been used. If the charge is reversed, that part ends, and any part already used is an amount you owe.
+
+Automatic raises. Where the Service offers Additional Volume, you may also enroll in automatic raises of it (“Automatic Raise”). Only a member your organization authorizes to manage billing may enroll, through a control that stays off until they turn it on. By enrolling, you authorize us to charge the payment method you choose, without further action by you, for a raise of the quantity of Additional Volume shown at enrollment each time the volume left for a Usage Period in the allowance that Additional Volume adds to, including any Additional Volume you hold, is less than the use of that allowance the Service projects for the following 24 hours, or for the rest of the Usage Period if that is shorter, up to the maximum you set for each Usage Period, at the Price Schedule’s prices then in force. The Service projects use at the rate of your use over the preceding 24 hours, counting use when the Service accepts it (Section 11.4), including what devices send when a limit hold ends, so an automatic raise may be charged before use reaches your allowances, and volume it adds that is not used ends with its Usage Period (Section 11.3). You can change the maximum, or turn Automatic Raise off, at any time through the Service, effective for charges not yet started. Where the law or the card issuer requires it, enrollment includes authenticating the payment method.
+
+We confirm your enrollment and its terms, send a receipt for each charge, and keep a record of each authorization — the terms shown, who gave it, and when.
+
+An automatic raise lasts only for the Usage Period in which it is made. When the next Usage Period begins, your Additional Volume returns to the quantity you set yourself, so an automatic raise never changes your recurring charge.
+
+Until a payment method is established as the Service Limits describe, Automatic Raise may be capped below your maximum. A raise you make yourself is not subject to that cap, only to any maximum Additional Volume.
+
+If any charge to you fails or is disputed — including an automatic raise, a raise you make yourself, a change of plan, or a plan renewal — we turn Automatic Raise off and tell you why; it stays off until you authorize it again.
+
+When your maximum or a cap is reached, when an automatic raise’s charge fails, and whenever use reaches your allowances before a raise is made — as it can where the Service projects no use — use beyond your allowances is held as Section 11.4 describes.
+
+11.7 Changes to prices, allowances & limits
+
+This Section governs every change to the Price Schedule and the Service Limits, including a change to what a Self-Serve Plan includes, except the discontinuation of a capability for every customer, which Section 3 governs. Section 19 governs changes to the text of these Terms, the DPA, and the AUP, and Section 3’s notice of changes to capabilities does not apply to a change this Section governs.
+
+In your favor, at once. A change in your favor — a higher allowance, a lower price, a feature added to a plan, a limit raised — takes effect when we publish it.
+
+Against you, from your next term. Within a Plan Term, or an Order term, you have paid for, no change against you takes effect for you. A change against you — a lower allowance, a higher price, a feature moved to a higher plan, a limit lowered — takes effect for you from the start of your first such term that begins at least 30 days after we notify you of it or, for a term of a year or longer, at least 45 days after. An Order governs over this paragraph for the matters it addresses. Where you have no paid plan, a change takes effect for you on reasonable advance notice, and it applies to a paid plan you buy after it takes effect. We notify you of a change against you by email to your organization’s contact and in the console; publishing a new version of a table is not by itself notice of it.
+
+Three exceptions. A change may take effect sooner, with notice as soon as practicable and only to the extent it requires: (a) a change required by law, by a regulator, or by the rules of a card network; (b) taxes, and new or increased charges a government imposes, passed through as they apply; and (c) an emergency security or abuse control in the Service Limits that lowers no allowance you have paid for and raises no price.
+
+11.8 Payment & non-payment
+
+Fees are charged through our payment processor, or invoiced as an Order says. A Self-Serve Plan’s price is charged at the start of each Plan Term, and Additional Volume as Sections 11.3 and 11.6 describe. An Order’s term, renewal, and payment terms are those it states; unless it says otherwise, its term renews as Section 18 provides. Amounts owed and not disputed in good faith that remain unpaid ten days after you receive written notice may lead to suspension of the Service until paid (Section 18’s scoped-and-loud rules apply), and late amounts may accrue interest at the lesser of 1.5% per month and the maximum lawful rate. We never suspend over an amount you are disputing in good faith. A Self-Serve Plan’s renewal whose charge fails is still a renewal and does not end the plan: the price is an amount owed, and the notice above applies before any suspension. No price accrues for a Plan Term that begins while that amount is unpaid. If you cancel the plan before the ten days after you receive that notice end, you owe nothing for the term whose charge failed, and the plan ends on the day you cancel rather than at the end of its Plan Term. A limit hold is not a remedy for non-payment and needs no such notice (Section 11.4).
+
+12. Confidentiality
+
+Each party will use the other’s Confidential Information only to perform under the Agreement, will protect it with at least the care it uses for its own similar information (and no less than reasonable care), and will not disclose it except to its personnel, advisers, contractors, and service providers — including the subprocessors the DPA describes — who need it to exercise that party’s rights or perform its obligations under the Agreement and are bound, for what they do on that party’s behalf, by obligations at least as protective as these. Each party is responsible for its recipients’ compliance. “Confidential Information” means non-public information disclosed under the Agreement that is marked confidential or would reasonably be understood to be confidential — including Customer Data (yours) and non-public Service information (ours). It excludes information that is or becomes public through no fault of the recipient, was known without restriction before disclosure, is independently developed, or is rightfully received from a third party.
+
+A party may disclose Confidential Information where legally compelled, with prior notice to the other party where lawful and reasonable cooperation on protective measures. These obligations survive for three years after the Agreement ends — except that obligations for trade secrets survive as long as the information remains a trade secret, and obligations with respect to Customer Data survive for as long as we retain any of it.
+
+13. Feedback
+
+If you give us suggestions, ideas, or other feedback about the Service, we may use it without restriction or obligation to you, and you assign no Customer Data by doing so. We will not name you as its source without your consent (Section 14).
+
+14. Publicity & trademarks
+
+Customer reference. You grant us the right to identify Customer as a customer — name and logo, in customer lists and marketing materials — subject to any brand guidelines you give us, and never in a way that suggests endorsement beyond the fact of being a customer. You can revoke this at any time by written notice (email suffices): we stop new uses immediately and remove existing uses from materials we control within 30 days. Anything more than name and logo — case studies, quotes, press releases — happens only with your prior written consent.
+
+One carve-out: truthful, nominative references are always permitted — you may say your App “works with Pharen” or is “built with Pharen,” provided the reference does not alter our marks, display them more prominently than your own, or suggest endorsement or affiliation. “Pharen” and the beam mark are our trademarks; all use inures to our benefit.
+
+Platform Mark and End-User Feedback. Unless your plan removes the Platform Mark, as the Price Schedule or your Order states: (a) you will not remove, hide, cover, alter, or obscure the Platform Mark, or prevent the Software or the Service from displaying it; and (b) you will submit End-User Feedback to the Service only through a form the Software draws or a page the Service hosts, and not through any other client, request, or interface. The Software’s display of the Platform Mark is not your use of our marks under this Section and implies no endorsement by either party. If you breach this paragraph and do not cure within 10 days after our notice — moving to a plan that removes the Platform Mark is a cure — we may refuse End-User Feedback from the affected App until you do; that refusal is a suspension under Section 18, limited to End-User Feedback. A repeated or deliberate breach is a material breach under Section 18.
+
+15. Warranties & disclaimers
+
+Each party warrants that it is validly existing and has the authority to enter into the Agreement.
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE SERVICE, THE SOFTWARE (SECTION 8), AND THE DOCUMENTATION ARE PROVIDED “AS IS” AND “AS AVAILABLE,” AND WE DISCLAIM ALL OTHER WARRANTIES, EXPRESS OR IMPLIED, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, AND ANY WARRANTY ARISING FROM COURSE OF DEALING OR USAGE OF TRADE. WE DO NOT WARRANT THAT THE SERVICE WILL BE UNINTERRUPTED, ERROR-FREE, OR SECURE FROM ALL THREATS.
+
+High-risk use. The Service and the Software (Section 8) are not designed or licensed for use in circumstances where their failure could lead to death, personal injury, or severe physical or environmental damage — such as life support, emergency dispatch, air traffic, nuclear facilities, or weapons systems — and you may not rely on them as a safety-critical component of any such system.
+
+App platforms. Decisions of app platforms about your Apps — review outcomes, rejection, removal, policy enforcement — are theirs, not ours. Use of the Service or the Software does not assure any platform outcome, and we are not responsible for those decisions.
+
+AI-assisted output. If we make AI-assisted analysis available to you, its output is probabilistic decision support, not a statement of fact; verify it before acting on it. Responsibility for decisions made using the Service remains yours.
+
+16. Indemnification
+
+By Customer. You will defend Pharen against any third-party claim arising from your Apps, Customer Data, your relationships with End Users, your breach of Section 7 or the AUP, or your violation of law — except to the extent the claim arises from Pharen’s breach of the Agreement (including the DPA), negligence, or willful misconduct, or from the Pharen-supplied Software itself — and you will indemnify Pharen for the damages, costs, and reasonable attorneys’ fees finally awarded on (or agreed in settlement of) such a claim.
+
+Infringement remedies (by Pharen). If the Service or Pharen-supplied Software, as provided by us and used as the Agreement permits, becomes — or in our reasonable opinion is likely to become — the subject of a third-party intellectual-property infringement or misappropriation claim, we will at our expense procure the right for you to keep using it, modify or replace it without material loss of capability, or — if neither is commercially reasonable — terminate the affected part and refund any fees prepaid for it for the period after that, and let you terminate the Agreement on notice, notwithstanding anything in Section 18, with a refund of any fees prepaid for the period after termination takes effect. Where Software has no separate fee, the affected part is the part of the Service it supports; there is no Software purchase price to refund. Removing affected Software under Schedule A does not forfeit these remedies. We offer these remedies in place of a defense-and-indemnification obligation. Any Pharen obligation to defend or indemnify must be expressly stated in an Order. These are your exclusive remedies for third-party infringement claims relating to the Service or Pharen-supplied Software.
+
+These remedies do not cover claims to the extent caused by Customer Data, your Apps independently of the Pharen-supplied Software, modifications we did not make or expressly permit, or use of a superseded version after we provided a non-infringing update. A combination with material we did not supply is excluded only to the extent the claim would not arise without that material and is not attributable to the ordinary integration this Agreement contemplates. Integrating the Software into Your Application, including processing expressly permitted by C1, does not alone exclude the remedy. This Section applies to Customers; it does not provide a remedy or defense obligation to a person bound only by Schedule A.
+
+For Customer’s defense and indemnification obligations under this Section, the indemnified party must give prompt notice of the claim (late notice matters only to the extent it prejudices the defense), give the defending party sole control of defense and settlement (no settlement imposing obligations on the indemnified party beyond ceasing infringing use or paying indemnified amounts without its consent), and provide reasonable cooperation at the defending party’s expense.
+
+17. Limitation of liability
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW: (a) NEITHER PARTY WILL BE LIABLE FOR INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES, OR FOR LOST PROFITS, REVENUES, GOODWILL, OR DATA, EVEN IF ADVISED OF THEIR POSSIBILITY; AND (b) EACH PARTY’S TOTAL AGGREGATE LIABILITY ARISING OUT OF OR RELATED TO THE AGREEMENT WILL NOT EXCEED THE GREATER OF US $100 AND THE AMOUNTS PAID OR PAYABLE BY CUSTOMER FOR THE SERVICE IN THE 12 MONTHS BEFORE THE FIRST EVENT GIVING RISE TO LIABILITY — AND IN ANY EVENT WILL NOT EXCEED US $100,000.
+
+These limits do not apply to Customer’s payment obligations, to Customer’s indemnification obligations under Section 16, to Customer’s breach of Section 2 (prohibited data) or Section 4 (security & integrity) of the AUP, or to a breach of the restrictions in Schedule A (A4, B2, and C2) or a use of Software outside the licenses Schedule A grants, and they do not limit either party’s liability for what cannot be limited under applicable law (such as fraud or willful misconduct). Multiple claims do not enlarge the cap. Each limitation applies even if a limited remedy fails of its essential purpose; the parties agree these allocations are a reasonable basis for a service offered on these economics. The Agreement does not shorten any statutory limitation period for bringing a claim.
+
+18. Term, suspension & termination
+
+The Agreement runs from your acceptance until terminated.
+
+Paid terms. Where an Order or a Self-Serve Plan sets a paid term, that term renews automatically for successive terms of the same length unless either party gives notice of non-renewal. Yours may be given at any time before the term ends, in writing or by canceling through the Service. Ours must be written and given at least 30 days before the term ends; if given later, it takes effect at the end of the first term that ends at least 30 days after it. Canceling a Self-Serve Plan through the Service ends only that plan, at the end of its current Plan Term (or earlier, as Section 11.8 provides for a failed renewal), and Section 11.2 then applies, and your written notice that cancels a Self-Serve Plan does the same unless it says it ends the Agreement; any other notice of non-renewal ends the Agreement when the term ends, unless it says it ends only the paid subscription. Neither party may terminate a paid term for convenience before it ends.
+
+Other use. Where no paid term is in effect, either party may terminate for convenience on 15 days’ written notice. The Documentation (https://www.pharen.ai/docs/service-limits#no-plan) states when we ordinarily give this notice.
+
+For cause. Either party may terminate if the other materially breaches and does not cure within 30 days of written notice. Failure to pay an amount owed that you are not disputing in good faith, within ten days after you receive our written notice of it under Section 11.8, is a material breach. That notice is also notice under this paragraph where it says so, and the 30 days to cure then run from the end of those ten days. An amount you begin disputing in good faith before we terminate is not a ground for termination under this paragraph until ten days after the dispute ends other than in your favor. We may terminate or suspend immediately where a breach of the AUP’s data or security rules, a legal requirement, or a genuine security risk leaves no room for a cure period, or if you become subject to insolvency proceedings. If you terminate for our uncured material breach, or we terminate under this paragraph other than for your breach, we refund any fees prepaid for the period after termination takes effect. If we terminate for your breach, fees you prepaid are not refunded, except where applicable law requires otherwise.
+
+Suspension is scoped and loud. Where suspension is necessary — to address a security risk, stop an AUP violation, comply with law, protect the Service and other customers, enforce the usage limits in Section 3 or the Platform Mark paragraph of Section 14, or collect amounts overdue as Section 11 provides — we suspend the narrowest slice practicable, notify you promptly, and restore service promptly once resolved. When we suspend ingestion under this Section, the suspension is never silent: the Service tells the SDKs in your Apps that ingestion is suspended, and the console tells you so. What the SDKs keep on each device while it lasts, and send once service is restored, is described in the Documentation (https://www.pharen.ai/docs/service-limits#suspended). The SDKs are Software, provided as Section 15 and Schedule A describe. Data that exists only on a device is lost if the App is removed or its data is cleared, and we cannot recover it. Rotating or revoking a credential under Section 4 because it is compromised, or at your request, is not a suspension under this Section.
+
+When the Service stops serving an App’s installs. The SDKs in an App’s installs delete what they hold on those devices, as the Documentation (https://www.pharen.ai/docs/service-limits#agreement-ends) describes, when the Service stops serving them:
+
+when the Agreement ends;
+
+when a plan or a trial ends and none follows (Section 11.2);
+
+at an SDK version’s end of life or, for debug builds, its end of support;
+
+when a credential an App uses is revoked because it is compromised, or is revoked at your request and any period in which it can be restored has passed; or
+
+when we stop a release as Schedule A, A6 provides.
+
+That data is not Customer Data, and its deletion is not a breach of the Agreement.
+
+After termination: your access ends, and for 30 days we will produce Customer Data to you in a machine-readable form on written request, within 20 business days of the request (extendable once by 20 business days, with notice, for an export of exceptional scope — the DPA states the mechanics) and with reasonable assistance — export is operator-assisted today; there is no self-service export endpoint. The window is yours: instruct deletion sooner under the DPA and it ends early. After that window, we delete Customer Data within 90 days across live systems, with backup copies aging out of the backup cycle within 180 days, as the DPA specifies — subject only to what law requires us to retain. Sections that by their nature survive (including 5 to the extent of retained copies, 6, 8, 11 as to amounts owed and refunds, and 12–20) survive.
+
+Continuity. If Pharen permanently ceases to operate the Service, we will give you as much advance notice as circumstances permit — targeting 60 days — keep export available through the wind-down (extending the export window above to 60 days), refund any fees prepaid for the period after the Service ends, and complete deletion under the DPA afterward. If we assign the Agreement to a successor (Section 20), you may terminate on notice within 30 days of ours, with the same export window and a refund of any fees prepaid for the period after termination takes effect.
+
+19. Changes to the Service & these Terms
+
+The Service evolves per Section 3, and prices, allowances, and limits change only as Section 11.7 provides. We may update these Terms, the AUP and the DPA; each version carries a number and effective date, with history noted on its page. An amendment does not retroactively change accrued claims or withdraw permissions Schedule A expressly preserves for existing Software copies or already-submitted builds. A separate express agreement may vary those rights only to the extent law permits. Preserved Software permissions do not entitle a licensee to perpetual hosted Service under earlier Service terms.
+
+Notice and prospective hosted use. For an amendment that materially reduces your rights or expands your obligations and does not require express agreement below, we give at least 15 days’ advance notice from deemed receipt under Section 20, or longer where the Agreement requires. Notice identifies the instrument and version, the change, its effective date, how and by when to object or exit, and the consequence of continuing hosted use. We use your organization’s notice channels; posting a page alone is not notice to an existing organization. Subject to the protections below and applicable law, continuing to use the hosted Service after that date is acceptance of the prospective amendment. Non-material changes take effect on posting, subject to those same protections.
+
+Objection and exit. If you object, you may terminate effective immediately on notice given before the amendment’s effective date, notwithstanding Section 18, with a pro-rata refund of prepaid unused fees and the Agreement’s export and deletion rights. An objection does not give a right to renew or receive hosted Service indefinitely under superseded terms. Where express agreement is required and is not obtained, we may instead give a non-renewal or termination notice as the Agreement permits; our existing obligations, including paid-term protections, continue until that takes effect. Lack of assent alone is not a ground for immediate suspension or retroactive breach.
+
+Changes requiring express agreement. A voluntary variation of expressly preserved existing SDK rights or protected paid-term commitments requires separate express agreement by an authorized representative, where lawful. Material expansion of data-use permissions requires the applicable explicit agreement and lawful basis before the expanded processing starts. Silence, notice delivery, viewing a notice in the console, or ordinary continued use does not supply that agreement. No amendment reduces the DPA’s promised protections during your term or overrides the Standard Contractual Clauses or mandatory rights. Except as Section 11.7’s exceptions and Section 3’s discontinuation provision allow, no change reduces what a Self-Serve Plan provides or raises what it costs within a Plan Term you have paid for without your separate express agreement. Schedule A, A6 governs acceptance of amended Software terms.
+
+Urgent protective action. These amendment procedures do not prevent proportionate measures the Agreement already permits to comply with law or address an urgent security or abuse risk, including narrowly scoped throttling or suspension. We give prior notice where practicable and lawful, otherwise notice as soon as practicable. Only the Agreement’s existing lawful exceptions permit an earlier effective date; urgency does not itself authorize unrelated price increases, broader data uses or retrospective withdrawal of Software rights.
+
+20. General
+
+Governing law & venue. The Agreement is governed by the laws of the State of Washington, USA, excluding its conflicts rules and the U.N. Convention on Contracts for the International Sale of Goods. You will bring any claim arising out of the Agreement only in the state or federal courts located in King County, Washington, and you consent to their jurisdiction and venue. We may bring a claim there or, to protect our intellectual property or to enforce Schedule A, in the courts of the place where you are domiciled or established or where the Software is being used or distributed in breach of it. If the mandatory law of the country where you habitually reside treats you as a consumer, nothing in this paragraph deprives you of that law’s protections or of the right to bring or defend a claim in that country’s courts. This paragraph does not apply to disputes governed by the Standard Contractual Clauses incorporated through the DPA, which are governed by their own Clauses 17 and 18.
+
+JURY WAIVER. TO THE MAXIMUM EXTENT PERMITTED BY LAW, EACH PARTY WAIVES ITS RIGHT TO A JURY TRIAL IN ANY DISPUTE ARISING OUT OF THE AGREEMENT. EACH PARTY ACKNOWLEDGES THAT IT MAKES THIS WAIVER KNOWINGLY AND VOLUNTARILY, AND THAT IT HAS HAD THE OPPORTUNITY TO CONSULT COUNSEL ABOUT IT. THIS WAIVER APPLIES BETWEEN PHAREN AND A CUSTOMER; IT DOES NOT BIND A PERSON BOUND ONLY BY SCHEDULE A.
+
+Export & sanctions. Each party will comply with applicable export-control and sanctions laws. You represent that you are not located in an embargoed jurisdiction and are not on any U.S. government list of prohibited or restricted parties, and you will not permit End Users to use the Service in violation of these laws.
+
+U.S. Government use. The Service and the Software (Section 8) are commercial computer software and documentation under FAR 12.212 and DFARS 227.7202; government users acquire only the rights these commercial terms grant.
+
+Assignment. Neither party may assign the Agreement without the other’s prior written consent, except that either party may assign it in its entirety, on written notice, to an affiliate or to a successor in connection with a merger, acquisition, corporate reorganization, or sale of substantially all assets. The Agreement binds and benefits permitted successors and assigns.
+
+Notices. Notices to Pharen go to hello@pharen.ai (mailto:hello@pharen.ai) or to the postal address below and are effective on receipt. Notices to you go to your organization’s contact email and are available through the console. Where your organization names more than one primary contact, a reference in the Agreement to your organization’s contact or contact email means all of them, and we send each notice to every one of them that you have confirmed and have not marked undeliverable. Each party keeps its notice contacts current. For a notice that starts a contractual period, deemed receipt is one business day after the earliest valid send to a primary contact of your organization, unless the notice is held as described below. A send is valid when delivery is confirmed, including a recipient complaint, with no recorded bounce or suppression; a provider’s acceptance of a message alone is not delivery. A separately recorded delivery by another route is valid unless a failure is recorded.
+
+If no primary send is valid by the end of the business day after sending, or no primary send supporting receipt remains valid, the notice period is held. It runs from the earliest subsequent release: a member with the owner role in your organization views the notice in the console or acknowledges it through another signed-in surface of the Service that records the acknowledgment, a primary send is valid, or five business days pass after we record a further attempt by another route. A notice refused because contacts are missing or undeliverable is held on the same terms; it does not become received merely by being posted. Repeated attempts for the same notice share its receipt and hold. Business days for these notice periods are Monday through Friday in UTC, subject to mandatory law. These are notice-receipt rules; receipt, a console view or an acknowledgment is not assent where the Agreement requires express agreement. A notice governed by mandatory law must also satisfy that law’s required content, delivery method, timing, and receipt rules; this Section does not replace them.
+
+Miscellaneous. The parties are independent contractors; the Agreement creates no partnership, agency, or third-party beneficiaries — except that data subjects retain the third-party beneficiary rights the Standard Contractual Clauses and the UK Addendum incorporated by the DPA confer on them, and any rights data-protection law gives them directly. Neither party is liable for delay or failure caused by events beyond its reasonable control, provided it resumes performance as soon as reasonably practicable — but force majeure does not excuse the notification, deletion, and confidentiality obligations of Section 12 and the DPA. The Agreement is the entire agreement about its subject and supersedes prior discussions. If a provision is unenforceable, it will be enforced to the maximum extent permissible and reformed to best reflect the parties’ intent, and the rest remains in effect. A waiver applies only if written, and only to the instance given. “Including” means “including without limitation.”
+
+Schedule A — Software License
+
+A1. Application
+
+This Schedule governs Software whose accompanying license file states that it is licensed under this Schedule. It applies to anyone who obtains that Software — a Customer, or a person without an account — and “you” in this Schedule means that person. If you obtain or use Software on behalf of an entity with authority to bind it, “you” means that entity, and you represent that you have that authority. Its authorized personnel may exercise its permissions solely on its behalf and subject to this Schedule; an affiliate or another client receives no separate license by that fact. You accept this Schedule by downloading, installing, running, linking, or distributing the Software after notice of these terms; if you do not accept it, do not obtain or use the Software. Pharen grants no other permission under this Schedule. Rights that cannot lawfully be excluded and permissions under separately applicable licenses remain unaffected. The restrictions in A4, B2, and C2 are conditions of the licenses in Parts B and C to the extent they limit the copying, modification, or distribution those licenses permit, and are otherwise promises you make by accepting this Schedule; either way, A8’s continuation during an applicable cure period applies.
+
+Capitalized terms this Schedule does not define have the meanings Section 2 of these Terms gives them, and a reference to a Section is to these Terms. Sections 13, 15, 17, 19, and 20, and the second paragraph of Section 14, apply to the Software and to this Schedule as they apply to the Service and to the Agreement, and to you as they apply to a Customer, whether or not you hold an account; in applying them, read “the Agreement” as including this Schedule and “the Service” as including the Software. Section 20’s jury waiver applies only between Pharen and a Customer. The other Sections of these Terms bind a Customer under the Agreement and do not bind a person who has not accepted these Terms. As to the Software, this Schedule governs over the other Sections of these Terms to the extent of a conflict, and an Order (Section 1) governs over this Schedule to the extent it expressly addresses the Software.
+
+A2. Definitions
+
+“Software” means a software development kit, command-line tool, or other program Pharen makes available under this Schedule, with its accompanying documentation, as distributed. “Compiled Software” is Software distributed in compiled form; Part C applies to it. “Source-Available Software” is Software distributed as source; Part B applies to it. For Compiled Software: “Binary” means the compiled library, in whichever linkage form (dynamic framework or static library) it is distributed; “Interface” means the machine-readable module interface files describing its public programming interface, including their documentation comments; “Debug Information” means the symbol and line-number information distributed with the Binary, within it or as accompanying symbol files; “Resources” means the localized strings, privacy manifest, and other non-code files packaged with it; “Manifest” means the package description through which a package manager resolves and verifies it. “Your Application” means an application you develop, or have developed for you, that integrates the Software to use the Service. “App Platform” means a channel through which Your Application reaches end users or testers — an app marketplace, a beta-testing channel, an enterprise or ad-hoc distribution channel, an over-the-air install channel, including the one the Service provides, or any other channel through which you make Your Application available to end users or testers; distribution through an App Platform remains subject to that platform’s own terms, which are yours to meet. “Output” means what the Software produces in your systems when you run it — files it writes, data it returns, and reports it generates. Output does not include the Software, any part of it, or anything C1(d) produces from it.
+
+A3. Ownership and responsibility
+
+The Software is licensed, not sold. Pharen owns the Software and all intellectual property rights in it and reserves every right this Schedule does not expressly grant. Your Application, other than the Software within it, is yours; linking or embedding the Software as Part C permits transfers no right in the Software to you, imposes no obligation on Your Application beyond those stated here, and, as between you and Pharen, does not by itself make Your Application a derivative or joint work of the Software. This sentence does not determine any third party’s intellectual property rights. End users and testers receive the Software only as a component of Your Application, under the terms that govern Your Application, and acquire no right in the Software beyond using Your Application. Output is yours: this Schedule claims no rights over Output, your applications, your repositories, or your data. Your Application’s compliance with the law that applies to it and its end users — including children’s-privacy law where it serves minors — is yours. This Schedule does not govern the processing of personal data; for a Customer, the DPA does.
+
+A4. Restrictions common to all Software
+
+Except as expressly permitted by this Schedule or a separately applicable license, you may not:
+
+(a) use the Software, in whole or in part, with any service other than the Service;
+
+(b) use the Software, its code or Interface, its Debug Information, or its documentation to develop, train, or improve a software development kit, tool, agent, or service that is offered or made available to any third party as a substitute for the Software or the Service. This subsection does not restrict a test double, adapter, or abstraction layer that calls or conforms to the Software’s programming or command interface in order to use the Software, whether or not you share it;
+
+(c) use the Software with a credential the Service did not issue to you, to an entity on whose behalf you act, or to a person for whom you develop Your Application and who has authorized your use of it;
+
+(d) remove, alter, or obscure any copyright, license, or attribution notice, or a privacy manifest, in the Software. Declaring the Software’s data practices in Your Application’s own privacy manifest or store listing does not alter the Software’s manifest;
+
+(e) publish, redistribute, mirror, or re-host the Software or any part of it other than as Part B or Part C permits, including through any repository, package index, artifact registry, or distribution channel that Pharen does not operate. The private copies and access described below are permitted; or
+
+(f) circumvent any mechanism by which the Service authenticates, meters, or limits use of the Software.
+
+You may make and retain copies, backups, private caches and build-environment images reasonably necessary for your permitted use. Your employees, contractors and hosted build providers may access them solely to perform that use on your behalf, under confidentiality and use restrictions protecting the Software. Access must be restricted to those recipients; you remain responsible for their compliance. This does not permit public mirrors, a shared cache for unrelated clients, independent recipient use or other distribution except as expressly permitted by this Schedule.
+
+For purposes of this Schedule, “interoperate with the Service” includes developing, testing, and debugging Your Application or your integration — including automated tests, local runs, or development builds that substitute a local or test endpoint for the Service’s live endpoint, commands that operate only on local files, and commands that communicate with a third-party platform on your behalf as part of that interoperation — and any period in which the Software is installed but inactive because an end user has not granted the consent it requires before transmitting data, or in which the Software is stopped or inactive as this Schedule or the Agreement provides. It does not include configuring the Software, in a version of Your Application offered to end users, to transmit data to any endpoint other than the Service; a proxy or gateway under your control that forwards the Software’s traffic to the Service without altering it is not another endpoint for this purpose.
+
+No provision of this Schedule, including A4, B2, C2 or A8, restricts an act or remedy that applicable law does not permit these terms to restrict. Exercising such a right is not a breach or ground for termination; the statutory right’s own limits still apply. An act that 17 U.S.C. §1201(f) permits is not a breach of C2(b). The good-faith Software security-research protection in AUP Section 4 (https://www.pharen.ai/legal/aup#security), as that Section reads when you obtain a Software version or as it later reads where that protects you more, applies on its stated conditions to your lawfully held copy of that version, including if you have no account. Only that protection and its conditions are incorporated for a person bound only by this Schedule; they grant no Service access or access to another person’s systems or data. Hosted load, stress, capacity or potentially disruptive tests require prior written permission under that Section, with an agreed plan covering targets, windows, duration, aggregate traffic and concurrency caps, and stop conditions. Rate-limit compliance alone is not that permission. Lawful offline research and ordinary nondisruptive app testing within existing permissions need no additional hosted-test permission. The Service’s proportionate protective throttling or suspension does not itself make protected lawful research a breach or revoke the research protection. Mandatory rights remain unaffected.
+
+A5. Patents
+
+The licenses in Parts B and C include a license under Pharen’s patent claims necessarily infringed by the permitted use of the unmodified Software, including processing expressly permitted by C1. If you, or an entity you control, start litigation alleging that the Software infringes or contributes to the infringement of a patent that you or that entity owns or controls, your patent license under this A5 ends when that litigation starts. Notifying Pharen of another person’s claim, or seeking a remedy under Section 16, is not such litigation.
+
+A6. Versions and updates
+
+The version of this Schedule published at www.pharen.ai/legal/terms (https://www.pharen.ai/legal/terms) when you obtain a Software version governs that acquisition, together with the Sections of these Terms that A1 applies to the Software, as they read then; for a Customer, an amendment to those Sections that it accepts under Section 19 applies to the Software as well. Later Software amendments bind upon your affirmative agreement or obtaining a later version after conspicuous notice and an act manifesting acceptance. Website publication alone does not rewrite preserved rights of an offline holder. A change does not retroactively alter accrued claims or withdraw permissions expressly preserved for existing copies or a build submitted to an App Platform before the change took effect, except by separate express agreement where lawful. Merely retaining or running Software offline, or an end user’s continued operation or redownload of an already-distributed app, is not the developer’s affirmative agreement to amended Software terms. The hosted Service remains subject to Section 19; preserved Software rights do not promise perpetual hosted use on earlier terms.
+
+The commitments published in the SDK support policy (https://www.pharen.ai/docs/sdk-support#commitment) apply to the versions and periods they cover, notwithstanding a general disclaimer of updates or support. The commitments published when a Software version is released are part of this Schedule for that version; a later change to the policy does not shorten a period or remove a commitment for a version already released; and a change to the policy is an amendment under Section 19. Except for those commitments and an applicable Order, Pharen does not promise feature updates, a support response time or indefinite archive availability. SDK-version retirement follows those commitments: only privacy or security defects may shorten the stated notice or support periods; a crash or stability defect alone does not. Through the Service, Pharen may stop a Software version from recording and sending data at its end of life, or at its end of support for debug builds. Separately, Pharen may disable an affected capability or stop the Software in a particular release of Your Application to address a privacy, security or application-stability defect, with notice where practicable. These protective actions do not shorten SDK-wide retirement periods for a crash or stability defect. When stopped, the Software deletes what it holds on the device, as the Documentation describes.
+
+Only a release archive whose checksum matches the published Manifest is represented as the archive Pharen distributed. This does not prohibit or remove the license for processing expressly permitted by C1, and does not represent a processed artifact as an unchanged Pharen archive.
+
+A7. Source code and integration materials
+
+This Schedule makes no promise that source code for Compiled Software will be made available. Source code Pharen makes available is licensed under its accompanying license. Sample code expressly identified as such in its directory’s license is governed by that license, including the Zero-Clause BSD license (0BSD) for the iOS sample; this Schedule does not restrict the separately licensed files. That sample license does not cover the SDK Binary, Interface, Debug Information or trademarks merely because the sample uses them.
+
+You may copy and adapt integration snippets Pharen identifies as examples into Your Application, and edit the Manifest as necessary for the private build and cache workflows permitted by A4(e). These permissions do not license the SDK implementation, Interface, Debug Information or trademarks under the sample license, authorize a public SDK mirror, or alter the permissions required for the Binary.
+
+A8. Termination
+
+For a Customer, the licenses end when the Agreement ends under Section 18, on its effective termination date; a Service suspension does not end them, and Pharen ends a Customer’s licenses for a breach, other than one on which they end automatically, only by terminating the Agreement for cause under Section 18, with that Section’s notice and cure. For anyone, the licenses end automatically on a breach of C2(b), or termination of the patent license under A5. For a person who is not a Customer, for any other breach, Pharen may end them by written notice to an email address you supplied or otherwise reasonably available to Pharen, effective thirty (30) days after notice unless you cure within that period; if no such address is reasonably available, Pharen may give that notice by another means reasonably calculated to bring it to your attention, including a notice at the repository, registry, or listing where the breach appears when that means meets that standard. The thirty days run from notice given by that means. This is a contractual notice rule, not a method of service of process. For a breach subject to that notice and cure period, the licenses continue during the period, subject to the Agreement’s Service-suspension rights and the mandatory-rights and research protections in A4. A person whose licenses ended automatically under this A8 obtains no new license under A1 without Pharen’s written consent.
+
+When the licenses end, you must within thirty (30) days stop running the Software and delete controlled copies, stop submitting new builds containing it, and either remove Your Application from sale or new download on App Platforms you control or release an update removing the Software. Exception for a Customer ending without breach: that Customer need only stop submitting new builds containing the Software; the general cessation, deletion and removal-or-update duties do not revoke the permissions for already-submitted builds and their delivery described below. No continued hosted Service or delivery of buffered data is promised.
+
+A build submitted for App Platform review before the licenses ended may complete review and release. An App Platform’s delivery — to users who installed Your Application before you comply with this A8 — of an auto-update, phased rollout or redownload of a version submitted before the licenses ended is unaffected. End users may continue using the Software as a component of those applications. You may retain a restricted archival copy and build/symbol records solely for legal, compliance and historical diagnostic purposes, without new deployment or distribution except as expressly preserved here. Separately licensed samples remain governed by their own license. A transfer of Your Application to another person while the licenses are in force does not transfer these licenses; unless the Agreement is assigned to that person as Section 20 permits, that person’s use is licensed by its own acceptance of this Schedule and requires its own credentials. After a lawful transfer while your licenses are in force, you have no duty under this A8 to remove or update copies controlled solely by the transferee. You remain responsible for your acts and omissions before the transfer and for copies you continue to control; a transfer does not cure a breach or release an accrued obligation or liability.
+
+Output produced before termination remains yours under A3. A1, A2, A3, A4, A5’s patent-retaliation provision, A6, A7 and this A8 survive, as do the licenses in Parts B and C to the extent necessary for the uses expressly preserved here. A5’s patent grant survives to the same limited extent unless it ended under its patent-retaliation provision.
+
+Part B — Source-Available Software
+
+B1. Grants
+
+Subject to your compliance with this Schedule, Pharen grants you a limited, worldwide, royalty-free, non-exclusive, non-transferable (except as Section 20 permits), non-sublicensable license to:
+
+(a) install and run the Software, as distributed, solely to interoperate with the Service;
+
+(b) make copies of the Software incidental to installing and running it under B1(a), including package-manager caches, container and continuous-integration images, and the internal registries A4(e) permits; and
+
+(c) view and study the Software’s code as distributed.
+
+Where a file the Software writes states its own license terms, those terms govern that file; a file that states none, you may use, modify, and distribute without restriction. For Source-Available Software, A4(a) applies only to a service that competes with the Service.
+
+B2. Restrictions
+
+Except as expressly permitted in B1 or A7, you may not modify the Software. It is licensed to be run as distributed; if it does not behave as documented, report that to hello@pharen.ai rather than altering your copy, so the fix can reach every installation. Studying the Software’s code to inform the design of software that is not offered or made available to any third party is not restricted by A4(b); any such software remains subject to A4(e).
+
+Part C — Compiled Software
+
+C1. Grants
+
+Subject to your compliance with this Schedule, Pharen grants you a limited, worldwide, royalty-free, non-exclusive, non-transferable (except as Section 20 permits), non-sublicensable license to:
+
+(a) download and install the Software, and read the Interface and the documentation, to evaluate and integrate the Software;
+
+(b) link or embed the Binary in Your Application and use the Software, as distributed, as a component of Your Application, solely to interoperate with the Service;
+
+(c) distribute the Software as a linked component of Your Application, and only in that form, to end users and testers through any App Platform, including the copying, re-signing, encryption, thinning, and delivery an App Platform performs on Your Application in its ordinary operation;
+
+(d) apply your own build pipeline’s ordinary processing to the Software — linking or embedding, dead-code elimination, symbol stripping, code signing, and generating debug symbol files — and provide resulting symbol files and Pharen-supplied Debug Information to App Platforms and the Service for crash symbolication. You may also provide those files privately to diagnostic and build providers solely to build, diagnose and support Your Application on your behalf, under confidentiality and use restrictions prohibiting public disclosure and independent use, including model training. The processing output remains licensed on the Software’s terms for C1(b)/(c) use and distribution, and may not be distributed separately from Your Application except for these expressly permitted symbol/debug-file deliveries. This does not authorize separate distribution of the Binary, a substitute SDK or service, or production-telemetry redirection contrary to A4;
+
+(e) use the Debug Information and the Interface to debug Your Application and attribute crashes and errors to the Software; and
+
+(f) make the private copies and permit the access described in A4(e), solely for your permitted use.
+
+Except for the separately licensed source and integration materials described in A7, this Schedule grants no right to the SDK implementation’s source code. The Interface and the Debug Information are provided for integration, debugging, and crash symbolication; they are not a source-code grant.
+
+C2. Restrictions
+
+Except as expressly permitted in C1 or A7, you may not:
+
+(a) modify, patch, translate, or create derivative works of the Software, or alter its behavior other than through the configuration the Interface provides, including by replacing or intercepting the code paths that enforce end-user consent, the compiled or remote off switch, or the credential the Software presents to the Service; or
+
+(b) reverse engineer, decompile, or disassemble the Binary, or attempt to derive its source code, except to the extent that applicable law expressly permits doing so notwithstanding this restriction — including any right that cannot be excluded by contract to observe, study, or test the Software’s operation, or to decompile it where that is indispensable to achieve the interoperability of an independently created program. Pharen makes the information needed to interoperate with the Software available on request to hello@pharen.ai; information so obtained may be used only for that interoperability.
+
+Version history
+
+1.0 — September 1, 2026 — initial publication.
+
+The Pharen platform · 522 W Riverside Ave, Ste N, Spokane, WA 99201-0581, USA · hello@pharen.ai (mailto:hello@pharen.ai)
+
+https://www.pharen.ai/legal/aup
+
+Legal
+
+Acceptable Use Policy
+
+Version 1.0·Effective September 1, 2026·pharen-aup
+
+This policy is part of the Terms of Service (https://www.pharen.ai/legal/terms) and applies to everyone who uses the Service. Capitalized terms have the meanings the Terms give them. Most of it is what you’d expect; Section 2 is the part specific to Pharen — the platform is built so certain data never enters the event stream, and this policy makes that a shared obligation, not just an engineering property.
+
+1. The short version
+
+Use the Service lawfully, on data you have the right to submit.
+
+Keep direct identifiers and sensitive data off the event stream; use the supported mechanisms for identity and special-category data.
+
+Don’t distribute malware, don’t mislead people with your links or messages, don’t probe what isn’t yours.
+
+When something looks wrong, tell us: hello@pharen.ai (mailto:hello@pharen.ai).
+
+2. Prohibited data
+
+The event stream — track() and screen() events, crash and performance context, session data — is designed to carry pseudonymous data only, and the Service enforces that server-side: an event carrying a field the platform classifies as identifying is rejected, not quietly cleaned. The SDKs additionally drop a short list of obvious identifying key names from track() properties as a convenience — a courtesy, not a filter you may rely on, and it does not cover screen views, crash or performance context, or data you attach elsewhere. These safeguards are defense in depth, not permission: you must not submit the following to the event stream at all:
+
+direct identifiers — names, email addresses, phone numbers, physical addresses;
+
+government-issued identification numbers (Social Security, passport, driver’s license, or equivalents);
+
+payment-card or financial-account data (PAN, CVV, bank account numbers);
+
+authentication secrets — passwords, API keys, tokens, private keys;
+
+special-category data — health information, biometric or genetic data, and data revealing racial or ethnic origin, political opinions, religious beliefs, trade-union membership, sex life, or sexual orientation;
+
+precise geolocation, or any continuous location tracking of an identified person.
+
+The supported mechanisms. Identity belongs in identify(): traits route to the identity store — a restricted attribute store separate from events — never inlined into properties or logs. Health-adjacent special-category data (for example, a vision-test result) may be stored only through the Service’s separate special-category store, only under an explicit, runtime end-user consent to the health purpose, and only where your own disclosures to that End User cover it. There is no other supported path for special-category data anywhere in the Service.
+
+Two categories are prohibited outright, with no supported mechanism in the Service:
+
+Protected health information regulated under HIPAA. We do not offer a business associate agreement; do not submit PHI created or received by or for a HIPAA-covered entity.
+
+Children’s data. Do not use the Service with an App directed to children under 13, and do not knowingly submit personal data of children under 13, without our prior written agreement. Where your App serves minors at all, compliance with children’s-privacy law (COPPA and its equivalents) is your responsibility.
+
+3. Abuse of the platform
+
+No unlawful use, and no content or data that infringes anyone’s rights.
+
+Distribution: no malware, spyware, or deceptive software through the Service’s build-distribution infrastructure; distribute only builds you have the right to distribute, signed under credentials you are entitled to use.
+
+Links: no phishing, no misleading destinations, and no link-cloaking of prohibited content through the Service’s link infrastructure.
+
+Plans and trials: do not split one App’s use across organizations or trials, or disguise your use, to evade an allowance, a usage limit, or a charge. Reducing or sampling what your Apps send is not evasion or circumvention under this AUP.
+
+Messages: if you deliver communications to End-User devices through the Service, no spam, no deception about the sender or purpose, and honor opt-outs. Compliance with messaging and electronic-communications law is yours.
+
+4. Security & integrity
+
+Do not attempt to access another customer’s data, probe or test the Service’s isolation against data that is not yours, or interfere with the Service or other customers’ use of it.
+
+Do not circumvent rate limits, quotas, consent enforcement, or other technical safeguards, and do not falsify the origin of data you submit.
+
+Do not share, sell, or misuse credentials, and do not resell or provide the Service to third parties as a service bureau without our written agreement.
+
+Good-faith security research is welcome when it is performed against your own organization and data, respects rate limits and other users, and is reported to hello@pharen.ai before public disclosure. We confirm receipt within five business days — automation may send that confirmation, and a person always follows up as soon as practicable — and agree a disclosure timeline with you; absent agreement, 90 days from your report is reasonable. Research within those bounds will not be treated as a breach of the Terms, and we will not bring or support legal action against you for it — including under the Computer Fraud and Abuse Act or analogous computer-crime laws — nor ask that you be prosecuted. Anything beyond those bounds — including any test that touches data that is not yours — requires our prior written permission. Good-faith security research on the Software (Terms Section 8), reported to hello@pharen.ai before disclosure, is treated the same way.
+
+Hosted testing. Load, stress or capacity testing of the Service, or another test reasonably likely to disrupt it or affect other users, requires our prior written permission. The agreed plan must identify authorized targets, organizations and accounts, the time window and duration, aggregate traffic and concurrency caps across all participating workers, apps, environments and credentials, and stop conditions and a means to stop promptly. Respecting a published or per-client rate limit alone is not permission or assurance of capacity. Stop when an agreed condition occurs or we direct a stop to protect the Service. Permission for one plan covers no different targets, scope or window.
+
+Lawful offline Software research and ordinary nondisruptive testing of your App within its existing permissions require no additional hosted-test permission. The research protection does not override anti-disruption rules or technical safeguards. We may proportionately throttle, suspend or stop affected hosted activity under Terms Section 18, with its notice and restoration duties. Protective action does not itself make otherwise protected lawful research a breach or revoke our promise not to bring or support legal action for it. Nothing here conditions mandatory statutory rights on advance permission or authorizes access to another person’s data.
+
+5. Copyright complaints
+
+The Service hosts builds our customers upload and serves install pages and links for them. If you believe material distributed through the Service infringes your copyright, send a notice with the substance of 17 U.S.C. § 512(c)(3) — identification of the work, the location of the material, your contact details, the required good-faith and accuracy statements, and your signature — to our designated agent under 17 U.S.C. § 512(c)(2):
+
+Copyright Agent, Pharen
+
+1315 NW Mall St Ste 1, Issaquah, WA 98027, USA
+
+Phone: +1 425 502 5164
+
+Email: copyright@pharen.ai (mailto:copyright@pharen.ai)
+
+The same details are on file in the U.S. Copyright Office’s DMCA Designated Agent Directory (https://dmca.copyright.gov/dmca/search.html). On a valid notice we disable access to the material and notify the customer who distributed it; we accept counter-notices and restore material where the law provides; and we terminate the access of repeat infringers in appropriate circumstances.
+
+6. Enforcement
+
+Violations are handled under the Terms (Section 18): where suspension is necessary we suspend the narrowest slice practicable, with notice where practicable, and Section 18 states how a suspension of ingestion is signaled and what the SDKs keep while it lasts. Material violations of Section 2 or 4 may lead to immediate suspension or termination. To report abuse of the Service — including a link or build you believe is malicious — contact hello@pharen.ai (mailto:hello@pharen.ai).
+
+Version history
+
+1.0 — September 1, 2026 — initial publication.
+
+The Pharen platform · 522 W Riverside Ave, Ste N, Spokane, WA 99201-0581, USA · hello@pharen.ai (mailto:hello@pharen.ai)
