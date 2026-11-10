@@ -2,7 +2,7 @@
 
 ## Reporting a vulnerability
 
-Email **hello@pharen.ai** with a description of the issue, the affected version, and
+Email **security@pharen.ai** with a description of the issue, the affected version, and
 reproduction steps if you have them. Please do not open a public issue for a suspected
 vulnerability. You will receive an acknowledgment, and a fix (when one is warranted)
 ships as a new SDK release with a CHANGELOG entry.

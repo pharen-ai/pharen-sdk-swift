@@ -7,12 +7,11 @@ writing it to disk and sending it run off that thread, and the app is never bloc
 checked first: an event whose purpose is not granted is dropped there and never stored. A
 switched-off SDK records nothing. There is no hook on this path for your own code.
 
-Events are kept on the device until they are delivered, and survive relaunches. A retried event
-keeps its id, so the platform counts it once. Events are always sent under the ingest key and
-test environment they were recorded with, even when a later launch starts with another — or, if
-that key has since been refused as invalid, not sent at all. The SDK sends while the app runs and again each
-time it moves to the background. How often it sends, and how much one send carries, are set by
-the platform rather than by your configuration, and can change without an app update.
+Supported queued events survive relaunches within the device limits below. A retried event keeps its
+ID, so the platform counts it once. Delivery uses the original ingest key and environment
+and remains subject to current consent, service limits, and expiry. The SDK sends while the
+app runs and when it moves to the background. The platform controls send frequency and
+batch size.
 
 `Pharen.shared?.flush()` asks for a send soon: it returns at once and sends off your thread.
 Calls a few seconds apart are combined into one send, so calling it after every event costs no
@@ -31,7 +30,7 @@ own, events can reach the service in a different order from the one they were re
 sending, across the queue, crash reports and identity updates; `maxQueueDepth` caps the queue's
 share. Past that, it makes room by dropping the oldest events your own calls recorded (tracked
 events, screens, screen-render, network and thermal timings, rating, monetization, cleanup and
-storage events) before any of its core events (among them sessions, crashes, errors and hangs,
+storage events) before any of its core events (among them sessions, crashes and errors,
 the app start, identity, links and pushes arriving, and everything a person sent). Crash reports
 count toward the same budget: an older one can give way, but the newest three are always kept. A device that holds its events for a long time becomes less detailed,
 and loses whole sessions last.
@@ -47,9 +46,8 @@ belongs to — except what your session sample rate leaves out, below.
   Core events go, marked as sent core-only; the others wait on the device.
 - **Usage limit.** When your organization reaches its plan's allowances, the platform holds what
   devices send until the allowances are raised or the next usage period begins. During the hold
-  the SDK still sends crash reports (`app.crash`), hangs that ended the app (`app.anr` with
-  `is_fatal: true`), and everything a person sent: feedback reports and survey answers.
-  Everything else, handled errors and recovered hangs included, waits on the device and is sent
+  the SDK still sends crash reports (`app.crash`) and everything a person sent: feedback reports and survey answers.
+  Everything else, handled errors included, waits on the device and is sent
   when the hold ends. Until a device has received the hold, an event the service refuses for now
   can hold the events behind it back until the device's next configuration refresh.
 - **Protective hold.** The platform can hold a build's sends altogether for a stated time, crash
@@ -59,12 +57,12 @@ belongs to — except what your session sample rate leaves out, below.
   left out sends nothing and is not billed. **Except when it crashes**: then its core events and
   the crash are sent, marked core-only, at the next launch, and it is still not billed. A feedback
   report or survey answer a person sends from a left-out session is sent all the same. The SDK
-  applies no sampling of its own.
+  applies no sampling of its own. Sampling decisions are scoped to the original credential
+  and environment.
 - **Repeated crashes.** A device sends the first five crash reports of each build, then one a
   day; an app that crashes at every launch before it can send anything reports a few of the
   first crashes, then one a day. Every report held back is counted onto the next one
-  that goes out (`represents`), so the platform's crash count stays exact. A hang that ended the
-  app counts as a crash.
+  that goes out (`represents`), so the platform's crash count stays exact.
 
 ## Scoping: `app_id`, `platform_app_id` and `org_id`
 

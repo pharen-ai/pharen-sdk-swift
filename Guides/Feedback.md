@@ -13,13 +13,15 @@ let answer = feedback.presentReport(category: .bug, context: details)  // the fo
 feedback.reportRefusal                                        // nil, or why a report now would be refused
 ```
 
-Each call that presents a form answers a `PharenFeedbackPresentation` — what came of asking:
+Each call that presents a form answers a `PharenFeedbackPresentation` — what came of asking. The
+report calls above give it, and so do the survey calls,
+[`presentNPS()` and `presentCSAT()`](#surveys-presentnps-and-presentcsat):
 
 | answer | meaning | your app |
 |---|---|---|
 | `.presented` | the form is on screen, ready to send | nothing to add |
-| `.refused(reason)` | reports are refused right now, and the form opened on the refusal, saying why | nothing to add: the person has been told |
-| `.unavailable` | nothing opened — the reporting flow is already up, another of the SDK's surfaces is on screen (a survey form, the rating question's card), there is no window to present from, or the screen in front is being presented or dismissed | say it could not open |
+| `.refused(reason)` | feedback is refused right now, for `reason`. From a report call, reports are refused (`reportRefusal` gives the same reason) and the form opened on the refusal, saying why; from a survey call, nothing opened, and the reason is the one `reportRefusal` gives, except `.withheld` while a notice covers your app | nothing to add: the person who asked to report has been told, and the person did not ask for a survey |
+| `.unavailable` | nothing opened — another of the SDK's surfaces is on screen (the reporting flow, a survey form, the rating question's card, and for a survey call the platform's rating sheet the SDK has just asked for), there is no window to present from, or the screen in front is being presented or dismissed. A survey call answers this only once every rule of its policy has let the survey through | from a report call, say it could not open; from a survey call your app made on its own, nothing to add |
 | `.invalidContext` | nothing opened — `presentReport`'s `context` is empty, only whitespace or past its bound | say it could not open |
 | `.ineligible(reason)` | nothing opened — the survey `presentNPS()` or `presentCSAT()` asked for is not presented now, for the first rule of its policy that said no | nothing to add: the person did not ask for it |
 
@@ -28,8 +30,8 @@ call's turn, so its answer is what happened. None of them is a send. The sheet c
 be ignored.
 
 The sheet is the only way a report reaches the platform through the SDK — there is no call that
-submits from a form your app draws. It says "Sent" only once the report is **accepted** for
-sending, so your app shows no confirmation of its own. `reportRefusal` is the same answer read before
+submits from a form your app draws. It acknowledges submission, and the console shows delivered reports. Let the form handle
+the acknowledgment. `reportRefusal` is the same answer read before
 anything opens: `.collectionOff` when the SDK is off (compiled or remote), `.consentMissing`
 when `content` is not granted, `.withheld` when reports are not being provided to this install
 right now. Read it to say "reports are off" in your own UI rather than offering a way to report
@@ -49,7 +51,7 @@ For a report started from something specific in your app — a result it compute
 flagged — `presentReport` opens the form for one kind with **context** from your app shown
 above the text field: read-only and selectable, under the heading **Sent with your report**,
 and sent with the report as its `context`. The person may add their own words or send the
-context alone; everything else about the form holds, the mark and the "Sent" included.
+context alone; everything else about the form holds, the mark and the submission outcome included.
 
 ```swift
 @MainActor func flag(_ item: Item) {
@@ -60,6 +62,8 @@ context alone; everything else about the form holds, the mark and the "Sent" inc
         break                  // the form is up, or says itself why nothing can be sent
     case .unavailable, .invalidContext:
         showCouldNotOpen()     // nothing opened
+    case .ineligible:
+        break                  // answered only by presentNPS() and presentCSAT(), never by this call
     @unknown default:
         break                  // an answer a later SDK adds
     }
@@ -71,8 +75,9 @@ on the facade are the same call, and answer what happened (the table above). `co
 points; an emoji is one) and is refused whole, never shortened: one that is longer, or empty or
 only whitespace, opens nothing, answers `.invalidContext`, and writes a line to the device log.
 While `reportRefusal` is non-nil the form opens as `presentSheet(category:)` does — saying why in
-place of its field — and the answer is `.refused` with that reason. `.unavailable` while the
-SDK's reporting flow is already on screen, and with nothing to present from. Put no identifiers, file paths or absolute dates in
+place of its field — and the answer is `.refused` with that reason. `.unavailable` while
+the reporting flow, a survey form or the rating question's card is on screen, and with nothing to
+present from. Put no identifiers, file paths or absolute dates in
 `context`: it is stored as the person's words are.
 
 ## Surveys: `presentNPS()` and `presentCSAT()`
@@ -85,8 +90,9 @@ with labeled endpoints; **CSAT** asks how satisfied they are, 1 to 5, each score
 word. One screen: choosing a score reveals the follow-up for its band (0–6 / 7–8 / 9–10, or
 1–2 / 3 / 4–5) and an optional comment of up to 10,000 characters, and nothing is sent until the
 person presses Send. Closing the form sends no score; once a comment is typed, closing asks first.
-"Sent" is shown only once the answer is accepted. The forms carry the platform mark when your plan
-does, and your app learns that a form was presented, never the score.
+The form acknowledges submission. Verify delivery in the console. The forms carry the platform
+mark when your plan does, and your app learns whether a form was presented. The score stays with
+the SDK and service.
 
 ```swift
 @MainActor func orderDelivered() {

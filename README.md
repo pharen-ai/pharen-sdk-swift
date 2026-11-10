@@ -1,6 +1,6 @@
 # PharenSDK (iOS / Swift)
 
-The iOS/Swift SDK for **[Pharen](https://www.pharen.ai)**: crash, hang and error reporting,
+The iOS/Swift SDK for **[Pharen](https://www.pharen.ai)**: crash and error reporting,
 performance, sessions and analytics, identity, feedback and surveys, rating prompts, deep links,
 push registration, remote configuration and app notices, field diagnostics, and storage
 observability — in one Swift package, with no third-party dependencies. Every event is gated
@@ -8,7 +8,7 @@ by a consent purpose your app grants, queued offline, and sent in batches.
 
 The SDK ships as a **compiled framework**: this repository carries the package manifest and the guides, and each release is a tag plus one archive, `PharenSDK.xcframework.zip`, that the manifest names by SHA-256 checksum. Swift Package Manager verifies the archive before anything is linked. Inside it, per platform: a dynamic `PharenSDK.framework` with its textual module interface and documentation, the SDK's privacy manifest and its 21 `.lproj` localizations.
 
-> **2.0.** APIs follow SemVer: `from: "2.0.0"` resolves every 2.x release, and a breaking change means a new major. The SDK runs in production apps.
+> **2.x.** APIs follow SemVer: `from: "2.0.0"` resolves every 2.x release, and a breaking change means a new major. The SDK runs in production apps.
 
 ## Requirements
 
@@ -48,11 +48,17 @@ dependencies: [
 ```
 
 Add `"PharenSDK"` to your target's dependencies. Consumers pin a SemVer **major** range:
-`from: "2.0.0"` resolves every 2.x release.
+`from: "2.0.0"` allows releases from 2.0.0 up to the next major. For evaluation, confirm
+that your project resolves PharenSDK 2.1.0 or later. If Xcode resolves an older version,
+update the package. If your project pins an older version exactly, update the requirement first.
 
 Resolution fetches `PharenSDK.xcframework.zip` from this repository's Releases and verifies
 its checksum against the manifest, so a build machine needs to reach `github.com`. Xcode
-embeds the framework in your app. Upload your app's own dSYMs so your frames symbolicate —
+embeds the framework in your app. [Request organization approval](https://console.pharen.ai/setup/application)
+to move beyond evaluation.
+Approved organizations can use test and live keys, and their
+paid plan determines which features and usage limits apply. Upload matching dSYMs to read
+your app's crash stacks —
 [Crash reporting](https://www.pharen.ai/docs/crash-reporting) lists the ways. The archive
 carries no debug symbols for the SDK, so a crash frame inside the SDK reads `PharenSDK + 0x…`:
 attributed to the SDK, not named. Xcode's warning at upload that `PharenSDK.framework` has no
@@ -61,10 +67,13 @@ says why.
 
 ## Quick Start
 
-You need an ingest key for each app and environment. Keys are issued once your application is
-approved; [Keys](https://www.pharen.ai/docs/api-keys) explains how. An ingest key is public by
-design: it ships inside your app, submits data for that one app and environment, and cannot
-read your event data back. Beyond sending, the SDK uses it to fetch the app's served
+For a private Debug build, follow the [evaluation setup guide](https://www.pharen.ai/docs#manual-evaluation)
+and keep the evaluation key in the ignored local configuration.
+
+The steps below use test and live keys, which are available after organization approval.
+[Keys](https://www.pharen.ai/docs/api-keys) explains how to create them. These keys can ship
+in builds, submit data for their app and environment, and carry no event read access.
+Beyond sending, the SDK uses them to fetch the app's served
 configuration, to look up a link when one opens, and, in the developer panel (debug, ad-hoc and
 in-house builds), to read the app's latest build and, outside in-house builds, the SDK version's
 support status — [SECURITY.md](SECURITY.md) lists every route it reaches.
@@ -83,13 +92,33 @@ import PharenSDK
 Pharen.start(granting: [.telemetry, .behavioral])
 ```
 
-Consent is opt-in, and this line is where you grant it: `telemetry` covers crashes, errors
-and performance; `behavioral` covers sessions, screens and `track()`. A started SDK with no
-purposes granted runs, and no event leaves the device.
+Consent is opt-in, and this line is where you grant it. The purposes you pass decide which
+modules collect anything: `telemetry` covers crashes, errors and performance;
+`behavioral` covers sessions, screens and `track()`; `content` covers what a person writes to
+you — a feedback report, a survey answer. A started SDK with no purposes granted runs, and no
+event leaves the device. A module whose purpose is missing still runs and sends nothing:
+without `content`, the report sheet opens only to say that feedback isn't collected in this
+app. To collect feedback, grant `content` beside the others — or alone, with the crash
+handlers left uninstalled, for an app that wants the report sheet and nothing else:
+
+```swift
+// Crashes, analytics and feedback:
+Pharen.start(granting: [.telemetry, .behavioral, .content])
+
+// Or feedback only — no crash, session or analytics event leaves the device:
+Pharen.start(granting: [.content]) { config in
+    config.crashReporting.enabled = false   // no crash or error handlers are installed
+}
+```
+
+[Feedback](Guides/Feedback.md) covers the sheet, and
+[Crashes and errors](Guides/Crashes-and-Errors.md) running beside another crash reporter.
 
 **3. Confirm it end to end.** Build and run the app once, then open **Events** in the
 [console](https://console.pharen.ai). The first session's events appear once the app has sent
-them: it sends while it runs, and again when it moves to the background. Events are sent by
+them: it sends while it runs, and again when it moves to the background. An app that granted
+`content` alone sends nothing until a person writes to you — a report, or an answer to a
+survey you serve — so send a report (shake the device) before looking. Events are sent by
 the running app, so a clean compile proves nothing. If nothing arrives, check that the key
 resolved (with an empty or missing key the SDK stays off and `Pharen.start` returns `nil`) and
 that the purposes you granted cover what you sent.
@@ -137,7 +166,7 @@ version for coding agents.
 | [Consent and privacy](Guides/Privacy.md) | The purposes and what each gates, the restricted stores, the privacy manifest |
 | [Analytics and identity](Guides/Analytics-and-Identity.md) | `track`, `screen`, `identify`, `reset`, traits, continuity without sign-in |
 | [Sessions](Guides/Sessions.md) | Automatic sessions, and how each launch is reported |
-| [Crashes and errors](Guides/Crashes-and-Errors.md) | Fatal crashes, hangs, exits no report describes, handled errors, breadcrumbs, symbols, other crash reporters |
+| [Crashes and errors](Guides/Crashes-and-Errors.md) | Fatal crashes, exits no report describes, handled errors, breadcrumbs, symbols, other crash reporters |
 | [Performance](Guides/Performance.md) | App start, screen render, network timing with trace context, thermal state |
 | [Ratings](Guides/Ratings.md) | The system rating prompt and the rating question, under a policy you serve |
 | [Feedback](Guides/Feedback.md) | The reporting sheet, reports about one thing, NPS and CSAT, shake, the reporter's address, the dev build panel |
@@ -158,8 +187,8 @@ This repository publishes the compiled SDK and its guides: it does not accept pu
 requests, and issues are not the support channel. Questions and support route through
 [pharen.ai](https://www.pharen.ai). Something broken, confusing, or missing? Tell us at
 **hello@pharen.ai** — the exact command, the expected result, and the actual output, error
-text verbatim, gets the fastest turnaround. To report a security vulnerability, email the
-same address — see [SECURITY.md](SECURITY.md).
+text verbatim, gets the fastest turnaround. To report a security vulnerability, email
+**security@pharen.ai** — see [SECURITY.md](SECURITY.md).
 
 ## What is in the archive, and how to check it
 

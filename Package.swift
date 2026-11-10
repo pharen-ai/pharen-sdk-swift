@@ -9,8 +9,9 @@
 // PharenSDK — the iOS SDK for Pharen.ai, distributed as a compiled framework.
 //
 // One binary target. The archive is an xcframework carrying a dynamic framework for the iOS
-// device, the iOS Simulator (arm64 and x86_64) and macOS; each slice ships with its own dSYM,
-// its textual module interface, the SDK's privacy manifest and its localizations. The
+// device, the iOS Simulator (arm64 and x86_64) and macOS; each slice ships with its textual
+// module interface, the SDK's privacy manifest and its localizations. Debug symbols are not in
+// the archive: Pharen holds each release's symbol files, matched to the binary's UUID. The
 // checksum is the SHA-256 of the release archive, and Swift Package Manager verifies it
 // before anything is linked — an archive whose contents differ from the one published is not
 // this release.
@@ -18,8 +19,8 @@
 // No third-party dependencies: the framework links Foundation and the system frameworks only.
 import PackageDescription
 
-let version = "2.0.0"
-let checksum = "13a3054b8ac84d9334abe50fc03ba02fe13fabe0f38349d58641cd0ce8cb8c2a"
+let version = "2.1.0"
+let checksum = "ecb32cf71a530db2f61f95f7693dafc5a018b27327c5f53e38a97711be5e83e9"
 
 // PHAREN_SDK_LOCAL_XCFRAMEWORK=<absolute path to a PharenSDK.xcframework> points this package at
 // a local build instead of the release archive — the way the SDK's own samples and verification

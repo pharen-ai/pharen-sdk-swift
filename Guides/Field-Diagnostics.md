@@ -14,6 +14,8 @@ before sending — the frame captured at the trigger and any pictures they pick 
 `attachments` setting, compiled, served or at runtime, governs those alone. The network
 trace, breadcrumbs and app context are **diagnostics** the SDK gathers, governed by
 `enabled` and, for the trace, `network.enabled`; turning attachments off leaves them riding.
+A compiled `network.enabled = false` is a capture ceiling: served configuration cannot turn
+that trace on.
 Breadcrumbs have no switch of their own: they ride every report, under `telemetry`.
 `crashTrace` is the trace a crash report carries: a trigger, not a part, and distinct from
 `crashReporting.enabled`, which installs the crash handlers.

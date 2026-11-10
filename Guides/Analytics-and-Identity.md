@@ -229,3 +229,8 @@ Know what that makes the numbers mean:
 installs. Passing the vendor identifier to `identifyDevice` records it and does nothing more with
 it, and it is still a Device ID — declared linked in the SDK's manifest, and linked in fact once
 your app also calls `identify`, because the event then carries the user id too.
+
+Previous-session recovery requires the stored credential, endpoint, app and declared environment
+to match this launch. Records from another scope, or legacy records without one, are omitted:
+no previous-session link or recovered session end is created from those records. Normal
+same-scope recovery continues.

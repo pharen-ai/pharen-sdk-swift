@@ -10,7 +10,7 @@ gate:
 
 | Purpose | Gates |
 |---|---|
-| `telemetry` | `app.crash`, `app.error`, `app.anr`, `app.exit`, `app.launch`, `app.notice_shown`, `app.notice_dismissed`, `app.notice_action`, `perf.*`, `storage.*`, `cleanup.scan_completed`, and the SDK's own reports: `sdk.error`, `sdk.config_snapshot`, `sdk.config_applied` |
+| `telemetry` | `app.crash`, `app.error`, `app.exit`, `app.launch`, `app.notice_shown`, `app.notice_dismissed`, `app.notice_action`, `perf.*`, `storage.*`, `cleanup.scan_completed`, and the SDK's own reports: `sdk.error`, `sdk.config_snapshot`, `sdk.config_applied` |
 | `behavioral` | `session.*`, `user.screen`, `user.event`, `deeplink.opened`, `install.referred`, `push.*`, `rating.*`, `feedback.survey_shown`, `feedback.survey_dismissed`, `feedback.survey_refused`, `monetization.*`, `cleanup.marked`, `cleanup.freed` |
 | `identity` | `identity.identify`, `identity.alias` (and the identity-store send behind `identify`) |
 | `content` | `feedback.nps`, `feedback.csat`, `feedback.report` |
@@ -65,3 +65,10 @@ A manifest cannot remove the SDK's entries, so either answer is made in App Stor
   - System → user: **Push** (APNs)
   - User → system: **Feedback** (the SDK's reporting sheet: `presentSheet` / `presentReport`)
 - **No PII in the event stream.** Identity traits and device attributes route to the identity store — a restricted store of its own — via `identify()` / `identifyDevice()`, never through `properties`.
+
+
+### Crash capture and a later opt-in
+
+Without telemetry permission, fatal handlers retain only a local failure marker bound to its credential/environment pair, with no crash payload. The marker is never sent. Starting a new telemetry permission interval discards pending crash files rather than sending an earlier declined interval's reports. App-owned performance accumulators must also start a fresh interval when permission changes.
+
+A runtime usage-consent grant also bounds session summaries: a session begun before the current permission interval produces no end summary, including after relaunch. Later fully consented sessions continue to report normally. This favors omission over reporting a duration that includes declined activity.

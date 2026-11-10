@@ -6,6 +6,16 @@ diagnostics and storage observability — one SDK, no third-party dependencies, 
 frameworks only. This file is the condensed, agent-oriented version of `README.md` and the
 capability guides in `Guides/`; https://www.pharen.ai/docs covers the platform around it.
 
+## Choose the integration path
+
+For an organization awaiting approval, use the [evaluation setup guide for coding agents](https://www.pharen.ai/docs#evaluate-with-an-agent).
+It covers human confirmation, Debug-only key wiring, consent, and verifying a feedback report.
+Resolve PharenSDK 2.1.0 or later for evaluation. Update an older package pin before building.
+For manual setup, follow the [private evaluation setup](https://www.pharen.ai/docs#manual-evaluation).
+Keep the evaluation key in the ignored local configuration.
+
+For an approved organization, use the steps below.
+
 ## The shortest correct path
 
 Before resolving the package, present [the SDK license](LICENSE.md) and the selected
@@ -25,13 +35,13 @@ package manager's download is not evidence of that representative's agreement.
    its checksum, so the build machine needs to reach `github.com`. Requires Xcode 26.0.1 or
    newer (the README states the floor for each release).
 
-2. **Set the ingest key.** Each app and environment has an ingest key, issued once the
-   application is approved (https://www.pharen.ai/docs/api-keys explains how). Add
+2. **Set the ingest key.** Test and live keys are issued after organization approval
+   (https://www.pharen.ai/docs/api-keys explains how). Add
    `PharenIngestKey` to the app's `Info.plist`; for a key per build configuration, set it to
    `$(PHAREN_INGEST_KEY)` and define `PHAREN_INGEST_KEY` per configuration in build settings or
-   an xcconfig. The key is public by design: it submits data for one app and environment and
-   cannot read your event data back (`SECURITY.md` lists the few lookups the SDK makes with it),
-   so it may be committed. Consent is not set here: it is granted in code (step 3).
+   an xcconfig. Approved test and live keys are designed to ship in builds and carry no event
+   read access (`SECURITY.md` lists the few lookups the SDK makes with them). Commit shared
+   build wiring and follow the team’s policy for storing those keys. Consent is not set here: it is granted in code (step 3).
    `Guides/Configuration.md` § The Info.plist keys lists every key the SDK reads (`PharenIngestKey`,
    `PharenConsentGrantedAtBuild`, `PharenIngestBaseURL` (development builds only),
    `PharenLinkDomains`, `PharenFeedbackContact`, `PharenAppEnvironment`).
@@ -96,6 +106,10 @@ an override of what the person later chose.
 
 ## Module map (call → proof)
 
+[Request organization approval](https://console.pharen.ai/setup/application) to move beyond evaluation.
+Approved organizations can use test and live keys and upload matching dSYMs for readable
+crash stacks. Your paid plan determines which features and usage limits apply.
+
 Verify each module by observing its data server-side (console, or the MCP tools below) — not by
 the call returning. The metrics named below are a starting point, not the reference: the live
 catalog is the authority on every metric's name, dimensions and filters. Read it with
@@ -108,7 +122,7 @@ catalog is the authority on every metric's name, dimensions and filters. Read it
 | Identity | `Pharen.shared?.identify(userId, traits:)` — your own id for this user, the one your sign-in system uses (opaque is best; an email or phone works, spelled the same way every time, and a development build logs a warning about one), and scalar traits (`email`, `phone`, `name_given`, `name_family`, `name_display`, `username`, `group_id`, `plan`, your own keys; `NSNull()` removes a key; up to 64 keys and 16 KB per call; whatever the store would not take is refused on its own and reported, the rest still goes); kept on the device across launches (`identity.persistence`), so call it when someone signs in and `Pharen.shared?.reset()` when they sign out (`reset(.userAndInstall)` also gives the next person a new install) — and `.identifyDevice(deviceId:attributes:)`. The SDK's manifest declares User ID and everything the install sends as linked — it all carries the persistent install id, and `identify()` and the report form's contact field (visible by default) tie it to a person — so answer App Privacy as the privacy report shows; a narrower answer is the app's own judgment against Apple's criteria (`Guides/Privacy.md`, Privacy manifest) | the `identity.identify` event, visible in console Events, and `user_id` on every later event from the install (traits never appear on the event stream — restricted store, by design) |
 | Crashes | automatic; handled errors via `crashReporting.recordError(_:stack:severity:breadcrumbs:)`; a trail via `crashReporting.leaveBreadcrumb(PharenBreadcrumb(category:message:level:data:))` — the last hundred ride every crash report, and a crumb whose `data` is not JSON is refused (`false`, logged), never the report. To prove the pipeline: upload your app's dSYMs (https://www.pharen.ai/docs/crash-reporting lists the ways; the SDK ships without debug symbols, so a frame inside it reads `PharenSDK + 0x…`), then `Pharen.crashTest()` (or launch a Debug build with the `-PharenCrashTest` argument), relaunch, and look for the symbolicated issue | console Issues; `crashes.count` metric; `pharen_issues` over MCP (next launch delivers, not crash time) |
 | Performance | `performance.startScreenRender(_:)` / `.endScreenRender(_:)`, `.recordNetwork(...)`, `.recordAppStart(cold:durationMs:)`, `.recordThermalState(...)`, `.recordSessionSummary(_:)` | `events.count` filtered by `type=perf.*`; `perf.sessions.count`, `perf.serious_seconds`, `perf.critical_seconds`, `perf.duration_ms` metrics |
-| Feedback | `Pharen.shared?.presentFeedbackSheet()` opens the SDK's reporting flow, a kind picker (problem / improvement / question) then the form for the kind chosen (shake opens it by default); `presentFeedbackSheet(category: .bug)` skips the picker, and the kind rides the report as its category. A report about one thing in your app: `presentFeedbackReport(category: .bug, context: details)` (`context` ≤ 2,000 characters, refused whole) opens the form with your context shown read-only above the field. Every presenting call is main-actor only and answers a `PharenFeedbackPresentation` — `.presented`, `.refused(reason)` (the form opened to say why), `.unavailable` or `.invalidContext`; show your own "couldn't open" only on `.unavailable` and `.invalidContext`. The sheet is the only way a report reaches the platform: there is no submit call, so do not build your own form; the sheet shows "Sent" itself, only once the report is accepted. `feedback.reportRefusal` says why a report would be refused, before anything opens. On a plan without white-label every step ends in "Powered by Pharen", plain text, drawn only once fetched configuration says so | `feedback.reports` metric; console Feedback (needs `content` consent) |
+| Feedback | `Pharen.shared?.presentFeedbackSheet()` opens the SDK's reporting flow, a kind picker (problem / improvement / question) then the form for the kind chosen (shake opens it by default); `presentFeedbackSheet(category: .bug)` skips the picker, and the kind rides the report as its category. A report about one thing in your app: `presentFeedbackReport(category: .bug, context: details)` (`context` ≤ 2,000 characters, refused whole) opens the form with your context shown read-only above the field. Every presenting call — these three, and the surveys `feedback.presentNPS()` / `feedback.presentCSAT()` — is main-actor only and answers a `PharenFeedbackPresentation`: `.presented`; `.refused(reason)` (a report call's form opened to say why; a survey call opened nothing); `.unavailable`; `.invalidContext` (`presentFeedbackReport` only); or `.ineligible(reason)` (the surveys only: the first rule of the served policy that said no). Show your own "couldn't open" only on `.unavailable` and `.invalidContext` from a report call; a survey your app asked for on its own needs nothing shown for any answer. The sheet is the only way a report reaches the platform: there is no submit call, so do not build your own form; the sheet acknowledges submission. Verify server delivery in the console. `feedback.reportRefusal` says why a report would be refused, before anything opens. On a plan without white-label every step ends in "Powered by Pharen", plain text, drawn only once fetched configuration says so | `feedback.reports` metric; console Feedback (needs `content` consent) |
 | Ratings | `ratings.requestRatingIfEligible(scene:)` — **off until a `ratings` policy is written in the console** (`ratings.enabled: true`, versioned with an actor and a note); compiled `PharenRatingSettings` carries thresholds only, and a prompt is never presented from them alone | `ratings.prompts` / `ratings.accepted` / `ratings.declined` metrics; a `rating.refused` event names the first rule that said no |
 | Remote config | applied automatically at start/foreground; read `Pharen.shared?.remoteFlag("key")?.boolValue ?? compiledDefault`; observe `Pharen.remoteConfigDidApplyNotification` | `config.rollout` metric — group by `config_version` AND `config_rule`, or a staged rollout reads as fully landed |
 | Deep links | SwiftUI: `.pharenDeepLinks { url in router.open(url) }` on your root view. UIKit: `deepLinks.handle(userActivity)` from your scene delegate. Routing: `deepLinks.onLink`, and `deepLinks.onLinkResolved` for the confirmation of a link routed before it arrived; domains: the app's link hosts are served, `deepLinks.linkDomains` adds your own (+ the `applinks:` entitlement) | `links.opened` metric; the console's Universal links page shows what is served for your domains |
@@ -253,8 +267,11 @@ with the `report_text` grant, or a person's own session, as a masked copy), `pha
 `users` grant and a stated purpose, each read recorded in your user lookup log), `pharen_issue_transition`
 (one lifecycle verb, as the person a session is bound to — never a key), `pharen_get_effective_config`,
 `pharen_get_rating_policy`, `pharen_set_rating_policy`, `pharen_store_overview`,
-`pharen_store_reviews`, `pharen_store_series`. `tools/list` is authoritative if this list and the
-server ever disagree. If the first call of a session fails, retry it once before debugging.
+`pharen_store_reviews`, `pharen_store_series`, `pharen_repair_plan` (person-bound planning),
+`pharen_repair_apply` (local stdio only, explicitly enabled and authorized). `tools/list` is authoritative if this list and the
+server ever disagree. A failed read-only query may be retried once; inspect mutation outcomes before retrying.
+
+Store setup: `pharen_repair_plan` needs a person control session and records a bounded five-minute plan without scheduling. `pharen_repair_apply` is local stdio only and requires explicit host authorization, local enablement and organization enablement; a query key cannot acquire mutation authority. Use store overview's analytics job evidence to verify ingestion afterwards. No provider secrets belong in tool inputs.
 
 ## Guides
 

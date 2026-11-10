@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.1.0 — 2026-11-10
+
+- **Private evaluation builds.** When evaluation is enabled for your organization, use an
+  evaluation key to try Pharen in a private Debug build with your app’s settings and consent
+  choices. To verify your integration, send a text report and find it in Feedback.
+- **Feedback and surveys.** The forms acknowledge submission on the device. Check the console
+  for delivery. If a selected image cannot be prepared, the report form keeps the draft so the
+  person can retry or remove the image.
+- **Crash and session recovery.** Crash reports with a recorded delivery scope keep it. The
+  SDK attaches session context when it can match the crash to the same install and session.
+
 ## 2.0.0 — 2026-10-23
 
 The first Swift Package Manager release of PharenSDK.
