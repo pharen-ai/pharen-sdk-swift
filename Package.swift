@@ -19,8 +19,8 @@
 // No third-party dependencies: the framework links Foundation and the system frameworks only.
 import PackageDescription
 
-let version = "2.1.0"
-let checksum = "ecb32cf71a530db2f61f95f7693dafc5a018b27327c5f53e38a97711be5e83e9"
+let version = "2.2.0"
+let checksum = "ae90145f4004ebfdb43c5a2c578dbc507e6dfbee9a7db9dea38bd355ab5413fd"
 
 // PHAREN_SDK_LOCAL_XCFRAMEWORK=<absolute path to a PharenSDK.xcframework> points this package at
 // a local build instead of the release archive — the way the SDK's own samples and verification

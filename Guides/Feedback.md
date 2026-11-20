@@ -48,10 +48,13 @@ any plan.
 ## A report about one thing: `presentReport(category:context:)`
 
 For a report started from something specific in your app — a result it computed, an item it
-flagged — `presentReport` opens the form for one kind with **context** from your app shown
-above the text field: read-only and selectable, under the heading **Sent with your report**,
-and sent with the report as its `context`. The person may add their own words or send the
-context alone; everything else about the form holds, the mark and the submission outcome included.
+flagged — `presentReport` opens the form for one kind with **context** from your app, sent with
+the report as its `context`. The form shows it after the question, first among the attachments,
+as an item captioned **Sent with your report**: read-only, never drawn as a field, and cut short
+after a few lines, so keep it to a line or two that tells the person what the report is about. A
+tap on it shows all of it, selectable. The person may add their own words
+or send the context alone; everything else about the form holds, the mark and the submission
+outcome included.
 
 ```swift
 @MainActor func flag(_ item: Item) {

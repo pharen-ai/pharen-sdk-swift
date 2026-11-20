@@ -66,7 +66,7 @@ struct HomeView: View {
                 Section("SDK forms and rating") {
                     ActionRow(
                         title: "feedback.presentReport(category:context:)",
-                        detail: "Opens the report form with a fixed sample context.",
+                        detail: "Opens the report form about one result, as a \"Report this result\" button would, with a description of that result sent as the context.",
                         accessibilityIdentifier: "sample.feedback.contextual-report"
                     ) {
                         model.presentContextualReport()

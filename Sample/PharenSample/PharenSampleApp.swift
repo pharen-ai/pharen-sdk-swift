@@ -7,6 +7,10 @@ import SwiftUI
 
 @main
 struct PharenSampleApp: App {
+    // Push needs an application delegate: Apple hands the token only to one. PushAppDelegate is
+    // the whole of it, ready to copy; it registers for the token and never asks for permission.
+    @UIApplicationDelegateAdaptor(PushAppDelegate.self) private var appDelegate
+
     init() {
         // One line, as early as possible. The key and the launch-time consent come from
         // Info.plist (`PharenIngestKey`, `PharenConsentGrantedAtBuild`) — the plist form, so the

@@ -1,5 +1,29 @@
 # Changelog
 
+## 2.2.0 — 2026-11-20
+
+- **Console output.** SDK lines start with `[Pharen]` and their level. By default, a
+  development build writes a line when the SDK starts and when something changes what it does;
+  other builds write only what needs your attention. Set how much the SDK writes with
+  `config.logLevel` or the `PharenLogLevel` Info.plist key. See
+  [Console output](Guides/Configuration.md#console-output).
+- **Push in a SwiftUI app.** The sample's `PushAppDelegate.swift` is an app delegate for push,
+  ready to copy. See [Push](Guides/Push.md#in-a-swiftui-app).
+- **Feedback attachments.** People can preview an attachment, draw on it in a choice of colors
+  or pixelate part of it, and take a screenshot when they choose. Pixelation is burned into the
+  image that is sent and uses no pixels from the area it covers. Set
+  `config.diagnostics.attachments.screenRecording.enabled = true` to allow silent screen
+  recordings of up to 30 seconds, or short videos from Photos. Recordings show the person's
+  touches and blank out screens your privacy masks cover. The capture controls use your brand's
+  accent color when it is legible.
+- **Evaluation builds.** Under an evaluation key, the SDK sends only the events your evaluation
+  collects. Rating prompts still appear as configured; surveys appear when your evaluation
+  collects survey answers. The first report can offer to attach a picture.
+- **The report form.** The context your app passes to `presentReport(category:context:)`
+  appears with the attachments, as part of what is sent; a tap shows all of it.
+- **Secondary text.** Captions and notes on the SDK's forms, prompts and notices meet 4.5:1
+  contrast, including where the system's secondary color is too faint.
+
 ## 2.1.0 — 2026-11-10
 
 - **Private evaluation builds.** When evaluation is enabled for your organization, use an

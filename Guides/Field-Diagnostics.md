@@ -49,7 +49,7 @@ field by field — except two that only narrow: a served `attachments.max_count`
 compiled count, and a compiled `attachments.enabled = false` is never turned on by a served value.
 The picture count and size and the bundle sizes are the platform's ceilings, and a served
 picture count may lower the compiled one, never raise it. A value written in code past a bound
-is held to it and logged at error level, naming the field. Uploads follow `PharenUploadPolicy` — by default a
+is held to it and logged as a warning, naming the field. Uploads follow `PharenUploadPolicy` — by default a
 bundle under 2 MiB goes on any connection, a larger one waits for an unmetered path and stops
 waiting after 24 hours — and a bundle waiting on connectivity is retried on foreground.
 
@@ -61,7 +61,7 @@ console. A marked view counts as on screen while it is in the view tree, not hid
 fully transparent. One exception reads the other way: a SwiftUI view with the mask and `.hidden()`, or
 inside `drawingGroup()`, has no view in the tree for the SDK to find, so while it is in the layout
 no picture is taken at all. Leave a private view out of the layout (`if`) rather than hiding it,
-and keep it outside `drawingGroup()`. The SDK logs an error naming this case when it refuses.
+and keep it outside `drawingGroup()`. The SDK logs a warning naming this case when it refuses.
 
 To keep the rest of the screen, cover just the view instead: `.pharenPrivacyMask(.coverRegion)`,
 or `view.pharenPrivacyMask = .coverRegion`. Its rectangle is filled before encoding. The fill
@@ -75,6 +75,25 @@ The mask cannot reach a picked photo, and a region you did not mark is captured 
 provides the mechanism and cannot verify the app used it. The capture is the SDK's own, taken by
 its reporting sheet; there is no call to take one yourself, and no way to attach a picture except
 through the sheet.
+
+On the form, people can tap an attachment to see it full size. They can draw on
+images, pixelate regions so what was under them cannot be read, and undo or redo edits before
+saving. The image is sent as one flattened picture with the drawing and pixelation in it.
+**Take screenshot** returns them to the app with a shutter; the image appears in
+the same report when they take it. The shutter and the record button take your
+brand's accent color when one is set.
+
+Set `config.diagnostics.attachments.screenRecording.enabled = true` to offer
+**Record screen** and let people choose videos from Photos. Clips are silent,
+up to 30 seconds, and share the attachment count and byte limits. In-app
+recordings follow your privacy masks on every frame. While a screen can't be
+captured safely, the clip shows a blank frame in its place and keeps recording.
+Each frame shows where the person touched, except on or beside a covered view;
+a touch on a covered view, or on a screen that can't be captured, is never shown,
+even after the view goes away.
+Recording pauses while the app is interrupted, by Control Center or a system
+alert for example, and stops, keeping the clip, if the person leaves the app.
+People can play or remove a clip before sending their report.
 
 ## Pictures: the `health` purpose, the block, and the switch
 

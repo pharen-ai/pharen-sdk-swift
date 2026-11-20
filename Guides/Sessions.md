@@ -29,7 +29,7 @@ kept: no notification payload, link or address reaches the event.
 
 To have a launch a link or a notification caused reported as such, hand them to the SDK as you
 already do for those modules (`deepLinks.handle`, `push.handle`), within about a second of
-`start`; later calls name nothing, and a late `recordRunCause` returns `false` and logs why. For a cause that reaches a
+`start`; later calls name nothing, and a late `recordRunCause` returns `false` and says why at the `info` log level. For a cause that reaches a
 callback of your own, name it there: `Pharen.shared?.recordRunCause(.geofence)` from
 `didEnterRegion` turns a launch the system reported only as `location` into `geofence`. With
 nothing handed over, a launch reports `user` in the foreground and `unknown` behind it — a

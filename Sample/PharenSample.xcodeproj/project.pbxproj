@@ -12,6 +12,7 @@
 		7F6E083CD398BAA6EE57C810 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF4E83E1AA94F11F953C067 /* SettingsView.swift */; };
 		B0722BC8D4884CBD365637FF /* SampleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB55FA486FAEEB93A071200F /* SampleModel.swift */; };
 		C07D5D9F12E251DEAF663ACE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D313BFE81E96151BEDBABA /* HomeView.swift */; };
+		CAC5F4D2DDEC317AAEA59D21 /* PushAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A990D2C525134CC58F7534A /* PushAppDelegate.swift */; };
 		E47E242FCC0BB6C4133F565B /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C95825B75F3EAE0B9ED993 /* PrivacyView.swift */; };
 		FD66E7141A5DDCFC4BF9FB4C /* PharenSampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235B429ACD83D6A965F3736E /* PharenSampleApp.swift */; };
 /* End PBXBuildFile section */
@@ -24,6 +25,7 @@
 		3BF4E83E1AA94F11F953C067 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		767BAAAE5D84A601D9BA2A63 /* ios */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ios; path = ..; sourceTree = SOURCE_ROOT; };
 		76C95825B75F3EAE0B9ED993 /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
+		8A990D2C525134CC58F7534A /* PushAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushAppDelegate.swift; sourceTree = "<group>"; };
 		A28206BB67F8F6AF58A5CDEA /* PharenSample.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = PharenSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB55FA486FAEEB93A071200F /* SampleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,6 +67,7 @@
 				0805DECEFFA4876EF7319257 /* Info.plist */,
 				235B429ACD83D6A965F3736E /* PharenSampleApp.swift */,
 				76C95825B75F3EAE0B9ED993 /* PrivacyView.swift */,
+				8A990D2C525134CC58F7534A /* PushAppDelegate.swift */,
 				BB55FA486FAEEB93A071200F /* SampleModel.swift */,
 				3BF4E83E1AA94F11F953C067 /* SettingsView.swift */,
 			);
@@ -146,6 +149,7 @@
 				C07D5D9F12E251DEAF663ACE /* HomeView.swift in Sources */,
 				FD66E7141A5DDCFC4BF9FB4C /* PharenSampleApp.swift in Sources */,
 				E47E242FCC0BB6C4133F565B /* PrivacyView.swift in Sources */,
+				CAC5F4D2DDEC317AAEA59D21 /* PushAppDelegate.swift in Sources */,
 				B0722BC8D4884CBD365637FF /* SampleModel.swift in Sources */,
 				7F6E083CD398BAA6EE57C810 /* SettingsView.swift in Sources */,
 			);

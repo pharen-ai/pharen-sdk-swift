@@ -89,10 +89,17 @@ final class SampleModel: ObservableObject {
         pharen.presentFeedbackSheet(category: .bug)
     }
 
+    /// What a "Report this result" button would do: open the report form about one result the
+    /// app computed, with a short description of that result as the context. The context is
+    /// shown to the person and stored as their words are, so it names the result, never the
+    /// person.
     func presentContextualReport() {
         let call = "feedback.presentReport(category:context:)"
         guard let feedback = Pharen.shared?.feedback else { return notePromptOff(call) }
-        let result = feedback.presentReport(category: .bug, context: "Sample home screen")
+        let result = feedback.presentReport(
+            category: .bug,
+            context: "Route result: 3 stops, 14 min, avoiding tolls (routing engine 4)"
+        )
         notePresentation(result, call: call, isReport: true)
     }
 

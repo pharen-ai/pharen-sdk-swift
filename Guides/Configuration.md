@@ -9,12 +9,13 @@ Info.plist:
 
 | Key | Required | Value |
 |---|---|---|
-| `PharenIngestKey` | yes | The ingest key (`YOUR-INGEST-KEY`), one per app and environment — see [Keys](https://www.pharen.ai/docs/api-keys). Public by design — commit it. **Empty or missing ⇒ the SDK stays fully off**: `start` returns `nil` and installs nothing. That is the recommended way to disable Pharen in local or unconfigured builds. |
+| `PharenIngestKey` | yes | The ingest key (`YOUR-INGEST-KEY`), one per app and environment — see [Keys](https://www.pharen.ai/docs/api-keys). Public by design — commit it. **Empty or missing ⇒ the SDK stays fully off**: `start` returns `nil` and installs nothing. That is the recommended way to disable Pharen in local or unconfigured builds. A development build says so in one warning line; any other build stays silent. |
 | `PharenConsentGrantedAtBuild` | no | Array of purpose strings granted at launch (`telemetry`, `behavioral`, `identity`, `content`). `health` listed here is dropped at start, logged and reported: special-category consent is a runtime opt-in, never a build-time grant. A value passed to `Pharen.start(granting:)` **replaces** this array — pick one form. |
 | `PharenIngestBaseURL` | no | For an ingest you run locally while developing: read only in a development build (a simulator build, or one signed for development). A release build ignores it, logs that it did, and sends to the SDK's own host. Must be `https`, or `http` to a loopback host only; anything else turns the SDK off rather than downgrade transport security. |
 | `PharenLinkDomains` | no | Array of extra universal-link domains the deep-links module accepts inbound (`["myapp.example"]`), beyond the hosts the platform serves for your app. `pharen.link` is included until the platform has named those hosts. Each entry still needs its `applinks:` associated-domain entitlement. |
 | `PharenFeedbackContact` | no | `optional` (the default), `required` or `hidden` — whether the report form asks the person for a way to reach them; see [The reporter's address](Feedback.md#the-reporters-address). |
 | `PharenAppEnvironment` | no | The test environment this build sends to, by name, when its ingest key is a test key — see `appEnvironment` below. Typically `$(PHAREN_APP_ENVIRONMENT)`, set per build configuration. Empty, only whitespace, or missing ⇒ none declared, and the key's own environment applies; so is a value that is not printable ASCII of at most 64 characters, which is logged at start. |
+| `PharenLogLevel` | no | How much the SDK writes to the console: `off`, `error`, `warning`, `info` or `debug` — see `logLevel` below and [Console output](#console-output). |
 
 `CFBundleShortVersionString` and `CFBundleVersion` supply the app version and build.
 
@@ -32,7 +33,7 @@ same thing, and when both are present the code value wins.
 | `Pharen.start(config:)` | A `PharenConfig` you built | `config.consentGrantedAtBuild` |
 
 The Info.plist forms return `nil` when unconfigured. `start(config:)` always returns an
-instance; with an empty `ingestKey` it logs an error and returns a stub that refuses every
+instance; with an empty `ingestKey` it logs a warning and returns a stub that refuses every
 event, installs no handlers and writes nothing to disk. One instance per process: a second
 `start` logs loudly and returns the existing instance with the new configuration ignored.
 `Pharen.shared` is that instance (`nil` before start) — read it at each call site rather than
@@ -56,7 +57,7 @@ Pharen.start(granting: [.telemetry, .behavioral]) { config in
 The block never sets the key, the release identity or the app: they come from Info.plist,
 the bundle and the ingest key. `health` cannot be granted at start by any form — a value
 written into `consentGrantedAtBuild`, on the granting line, in a plist or in the block, is
-dropped at start, logged at error level and reported as `config.health_at_build` (an
+dropped at start, logged as a warning and reported as `config.health_at_build` (an
 `sdk.error`, which rides the `telemetry` purpose).
 
 ## Configuring in code
@@ -120,3 +121,44 @@ the server from the ingest key — the configuration has no field for it.
 | `uiLocale` | `nil` | Pin the SDK's own end-user surfaces to one language (a BCP-47 tag). `nil` follows the reader's own language preference. |
 | `storageAppGroupIdentifier` | `nil` | An app-group container to include in the storage footprint. Entitlements cannot be read back at runtime, so a group container is measured only when named here. |
 | `storageDirectories` | `[]` | Directories to include in the storage footprint beyond the standard containers (`PharenStorageDirectory`). |
+| `logLevel` | `nil` (or `PharenLogLevel`) | How much the SDK writes to the console (`PharenLogLevel`). `nil` logs at `info` in a development build and `warning` in any other. See [Console output](#console-output). |
+
+## Console output
+
+Every line the SDK writes starts with `[Pharen]`, then the level and the area it concerns, so
+it reads as the SDK's in Xcode's console, in a copied console, and in any tool you paste it
+into:
+
+```text
+[Pharen] info lifecycle: started sdk=2.2.0 config_source=Info.plist consent=behavioral,telemetry crash_reporting=true
+[Pharen] warning config: the SDK is off — no PharenIngestKey in Info.plist. Add your app's ingest key there, or start with Pharen.start(config:)
+```
+
+Values the line reports are `key=value`, so a script can read them; a value with a space, a
+quote or a backslash is written in quotes, its quotes and backslashes escaped. The lines also
+go to the system log under the subsystem `ai.pharen.sdk`, with the area as the category, and
+`log stream --level debug --predicate 'subsystem == "ai.pharen.sdk"'` shows them alone. Without
+`--level`, `log stream` leaves out `info` and `debug` lines, the start line among them; in
+Console.app, turn on Include Info Messages and Include Debug Messages in the Action menu.
+
+| Level | What it writes |
+|---|---|
+| `error` | Something failed that you may need to know about: data the SDK could not keep, read or send after its own recovery. |
+| `warning` | Something you can fix: a missing or refused setting, an API used in a way that does nothing, a key the service refused. |
+| `info` | One line when the SDK starts, and a line when the platform or your settings change what it does — held, stopped, switched off, served again. |
+| `debug` | Everything else, for investigating a problem with Pharen support. |
+| `off` | Nothing. |
+
+Each level includes the ones above it. Unset, a development build — run from Xcode, on a
+simulator, or signed for development — logs at `info`, so a healthy launch writes the one
+`started` line; any other build logs at `warning`, and writes nothing unless something needs
+your attention. Set the level on the configuration, or with the `PharenLogLevel` Info.plist key:
+
+```swift
+Pharen.start(granting: [.telemetry]) { config in
+    config.logLevel = .debug
+}
+```
+
+A transient failure the SDK recovers from on its own — no network, a server error, a timeout —
+is `debug`: it is retried, and nothing is lost.

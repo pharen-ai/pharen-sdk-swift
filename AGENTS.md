@@ -253,13 +253,13 @@ claude mcp add pharen --transport http https://mcp.pharen.ai/mcp \
   --header "Authorization: Bearer phq_live_…"
 ```
 
-The query key is a separate, read-only credential, issued per environment and scoped to the
+The query key has read-only access to your organization’s data. It is issued per environment and scoped to the
 apps it names (https://www.pharen.ai/docs/api-keys). Scope it to the app you are integrating: a key
 with no app scope reads every app the organization has, including ones added later.
 The prefix says whether it is live or test: a `development` key starts `phq_test_`, a `production` one
 `phq_live_` (the header above shows the production shape).
 
-Tools: `pharen_list_metrics` (the catalog — call it first), `pharen_apps` (the apps you may
+Tools: `pharen_send_pharen_feedback` (requires explicit approval for each send), `pharen_list_metrics` (the catalog — call it first), `pharen_apps` (the apps you may
 name, by name and id — call it when a question names an app in words), `pharen_query`, `pharen_issues`,
 `pharen_issue` (one issue with the report behind it — the words of a report ride a key minted
 with the `report_text` grant, or a person's own session, as a masked copy), `pharen_user` and

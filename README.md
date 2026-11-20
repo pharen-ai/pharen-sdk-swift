@@ -121,7 +121,9 @@ them: it sends while it runs, and again when it moves to the background. An app 
 survey you serve — so send a report (shake the device) before looking. Events are sent by
 the running app, so a clean compile proves nothing. If nothing arrives, check that the key
 resolved (with an empty or missing key the SDK stays off and `Pharen.start` returns `nil`) and
-that the purposes you granted cover what you sent.
+that the purposes you granted cover what you sent. The SDK's own lines in Xcode's console start
+with `[Pharen]`: a development build writes one `started` line, or a warning saying why the SDK
+is off.
 
 The Info.plist keys the SDK reads, the other start forms, and every `PharenConfig` field are in
 [Configuration](Guides/Configuration.md).
@@ -162,7 +164,7 @@ version for coding agents.
 
 | Guide | What it covers |
 |---|---|
-| [Configuration](Guides/Configuration.md) | The Info.plist keys, the start forms, configuring in code, every `PharenConfig` field |
+| [Configuration](Guides/Configuration.md) | The Info.plist keys, the start forms, configuring in code, every `PharenConfig` field, console output |
 | [Consent and privacy](Guides/Privacy.md) | The purposes and what each gates, the restricted stores, the privacy manifest |
 | [Analytics and identity](Guides/Analytics-and-Identity.md) | `track`, `screen`, `identify`, `reset`, traits, continuity without sign-in |
 | [Sessions](Guides/Sessions.md) | Automatic sessions, and how each launch is reported |

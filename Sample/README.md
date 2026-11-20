@@ -29,6 +29,11 @@ readout of what a report would carry (grant `health` and the pictures row turns 
 switch that turns pictures off on the install; `identify`; an inbound link's domain (deep
 links); and the privacy posture, stated in the words the SDK keeps.
 
+Push is wired through `PushAppDelegate.swift`, a file to copy into a SwiftUI app. To receive a
+push, add the Push Notifications capability under Signing & Capabilities with your own team; the
+sample carries the background mode, and leaves the capability out so it still signs on a team
+that cannot use push.
+
 The project is generated from `project.yml` with XcodeGen 2.45.4 and committed, so nothing
 needs installing to open it; edit the YAML and regenerate with that version to change it.
 

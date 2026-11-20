@@ -68,6 +68,10 @@ targets:
         # Your universal-link domains, once the target carries their associated-domain
         # entitlements; the deep-link row counts a link only from a domain listed here.
         # PharenLinkDomains: [myapp.example]
+        # Silent pushes (`content-available`) that arrive while the app is in the background
+        # reach `PushAppDelegate`. Push needs one more thing a sample cannot carry for you: the
+        # Push Notifications capability, added under Signing & Capabilities with your own team.
+        UIBackgroundModes: [remote-notification]
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: ai.pharen.sample
